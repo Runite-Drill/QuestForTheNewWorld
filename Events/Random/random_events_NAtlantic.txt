@@ -1,0 +1,217 @@
+EVENT INDEX:
+0 = bad events
+10 = good events
+
+NAMESPACE = RE_NAtlantic
+
+###CONDITIONS###
+location = north atlantic
+
+###DEFAULT###
+random_event = yes
+
+###BEGIN###
+EVENT = {
+	ID = 1
+	title = blizzard
+	text = You saw it coming from the north. A wall of ice and snow and certain death. Freezing temperatures reached out with a welcoming hand. Icy winds and bitter darkness greeted you with the familiarity of a old aunt. A blizzard is coming.
+		
+	option = {
+		text = Turn back now.
+		link = return #go back
+
+	option = {
+		text = Push through.
+		link = resume #carry on
+		conditions = {
+			crew_amount = 10
+		subtract = {
+			crew_amount = 10
+
+	option = {
+		text = Pray for forgiveness.
+		link = resume
+		conditions = {
+			role = missionary
+
+EVENT = {
+	ID = 2
+	title = frozen assets
+	text = The cold temperatures in this part of the world have frozen one of the doors shut in the hold! We will never be able to access it now.
+		
+	option = {
+		text = Thank goodness we did not have anything in there.
+		link = resume #continue
+		conditions = {
+			treasure_storage = 10
+		subtract = {
+			treasure_storage = 10
+
+	option = {
+		text = Thank goodness we did not have anything in there.
+		link = resume #continue
+		conditions = {
+			~treasure_storage = 10
+		multiply = {
+			treasure_storage = 0
+
+EVENT = {
+	ID = 3
+	title = stray iceberg
+	text = It is dark. It is nighttime. You can see nothing outside other than the stars in the sky and the moon reflecting off the ocean surface. There is an age old saying: there is more than meets the eye. This holds especially true where you hear a sudden thump, and the ship lurches to a sudden halt. You look over the railing. Great. An iceberg of titanic proportions, yet only the very tip can be seen.	
+	option = {
+		text = This will set us back a bit.
+		link = resume #carry on
+		multiply = {
+			food_amount = 0.9
+			gold_amount = 0.9
+			treasure_storage = 0.9
+	option = {
+		text = Big deal. Go around it.
+		link = resume
+		conditions = {
+			role = admiral
+
+EVENT = {
+	ID = 4
+	title = Winter Storm
+	text = An icy storm has crawled out from the north! We have been forced to settle down for a while to minimise the risk to our crew.
+
+	option = {
+		text = That is a shame.
+		link = resume #carry on
+		multiply = {
+			food_amount = 0.9
+	option = {
+		text = Settle down? I do not think so.
+		link = resume
+		conditions = {
+			role = admiral
+		multiply = {
+			crew_amount = 0.95
+
+EVENT = {
+	ID = 5
+	title = Bitter cold
+	text = It is just too cold out here.
+
+	option = {
+		text = The best part of the North Atlantic is leaving.
+		link = atlantic_central.5 #azores
+		subtract = {
+			prestige = 10
+	option = {
+		text = Cold? I think not.
+		link = resume
+		subtract = {
+			prestige = 5
+		multiply = {
+			crew_amount = 0.95
+
+EVENT = {
+	ID = 10
+	title = polar bear family
+	text = Floating on an iceberg that has travelled from the inner circles of the Arctic is a family of polar bears. They are so beautiful and graceful!
+	
+	option = {
+		text = Nice. I like hiding.
+		link = return
+
+	option = {
+		text = Nice. I like eating.
+		link = resume #carry on
+		conditions = {
+			role = admiral
+		add = {
+			food_amount = 10
+
+	option = {
+		text = Nice. I like following.
+		link = atlantic_north.23 #North Pole
+		conditions = {
+			role = explorer
+
+	option = {
+		text = Nice. I like watching.
+		link = resume
+		conditions = {
+			role = scholar
+		add = {
+			prestige = 10
+
+	option = {
+		text = Nice. I like hunting.
+		link = resume
+		conditions = {
+			role = merchant
+		add = {
+			gold_amount = 10
+
+	option = {
+		text = Nice. I like trophies.
+		link = resume
+		conditions = {
+			role = head of state
+		add = {
+			treasure_amount = 10
+
+	option = {
+		text = Nice. I like families.
+		link = resume
+		conditions = {
+			role = colonist
+		add = {
+			crew_amount = 10
+
+	option = {
+		text = Nice. I like my life.
+		link = return
+		conditions = {
+			role = peasant
+
+	option = {
+		text = Nice. I like worshipping.
+		link = resume
+		conditions = {
+			role = missionary
+		add = {
+			treasure_storage = 10
+
+	option = {
+		text = Nice. I like sacrifices.
+		link = resume
+		conditions = {
+			allegiance = aztec
+		add = {
+			score = 100
+
+EVENT = {
+	ID = 11
+	title = australis borealis
+	text = As nighttime rolls over and the vivid orange dusk fades strange dancing lights appear in the sky. Like waves of light suspended in air. There are a variety of colours. A deep blue hue and a gentle turquoise ripple. The effect is absolutely mesmerising.
+		
+	option = {
+		text = Beautiful.
+		link = resume #carry on
+		add = {
+			discoveries = northern lights
+			prestige = 5
+
+EVENT = {
+	ID = 12
+	title = Fishing
+	text = Sailing out in the ocean is the perfect time to cast out the net and go fishing for food. This is even more so true when you pass through an abundant fishing source.
+
+	option = {
+		text = We feast on fish tonight!
+		link = resume #carry on
+		add = {
+			food_amount = 20
+	option = {
+		text = Fish are friends, not food.
+		link = resume
+		conditions = {
+			role = scholar
+		add = {
+			prestige = 10
+

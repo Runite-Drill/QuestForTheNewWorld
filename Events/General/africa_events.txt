@@ -1,0 +1,53 @@
+EVENT = {
+	ID = 0
+	title = the beginning
+	text = test event
+		
+	option = {
+		text = test 1.
+		link = 1
+		
+	option = {
+		text = test 2.
+		link = 2
+		
+
+EVENT = {
+	ID = 1
+	title = lost at sea
+	text = You make your decision around and hope for better luck elsewhere. The sky is clouded, preventing navigation by the stars. Your maps are not much use when all of the ocean looks the same, but eventually the clouds begin to dwindle. Where do you go now?
+		
+	option = {
+		text = We are lost. We can only follow the stars and hope for the best.
+		link = [2,-3,16,17]
+		
+	option = {
+		text = We must find out way back to Europe.
+		link = [17,18]
+		
+	option = {
+		text = Pick me, I like lemonade.
+		link = 2
+	option = {
+		text = David is cool
+		link = north_atlantic.1
+		conditions = {
+			role = admiral
+		modify = {
+			add = { food_amount = 0.8
+		
+
+EVENT = {
+	ID = 2
+	title = this is a test
+	text = Game engine test
+		
+	option = {
+		text = Success!
+		link = 0
+		
+	option = {
+		text = Not good.
+		link = 0
+		
+		

@@ -1,0 +1,131 @@
+EVENT INDEX:
+0 = bad events
+10 = good events
+20 = event chain
+
+NAMESPACE = RE_NUL
+
+###CONDITIONS###
+allegiance = none
+
+###DEFAULT###
+random_event = yes
+
+###BEGIN###
+EVENT = {
+	ID = 1
+	title = Personal responsibility
+	text = The people think our expedition is weak. By going it alone we are responsible for each and every mishap that should occur.
+
+	option = {
+		text = We cannot blame anyone but ourselves.
+		link = resume #continue
+		subtract = {
+			prestige = 20
+
+
+
+
+EVENT = {
+	ID = 10
+	title = english influences
+	text = We have stumbled across a delightful English expedition. Upon hearing that we are on our own, they have extended an offer to join the English quest for the New World.
+
+	option = {
+		text = For Britain!
+		link = resume #continue
+		change = {
+			allegiance = england
+
+	option = {
+		text = No thanks.
+		link = resume #continue
+
+EVENT = {
+	ID = 11
+	title = french influences
+	text = We have stumbled across a delightful French expedition. Upon hearing that we are on our own, they have extended an offer to join the French quest for the New World.
+
+	option = {
+		text = For France!
+		link = resume #continue
+		change = {
+			allegiance = france
+
+	option = {
+		text = No thanks.
+		link = resume #continue
+
+EVENT = {
+	ID = 12
+	title = spanish influences
+	text = We have stumbled across a delightful Spanish expedition. Upon hearing that we are on our own, they have extended an offer to join the Spanish quest for the New World.
+
+	option = {
+		text = For Spain!
+		link = resume #continue
+		change = {
+			allegiance = spain
+
+	option = {
+		text = No thanks.
+		link = resume #continue
+
+EVENT = {
+	ID = 13
+	title = portuguese influences
+	text = We have stumbled across a delightful Portuguese expedition. Upon hearing that we are on our own, they have extended an offer to join the Portuguese quest for the New World.
+
+	option = {
+		text = For Portugal!
+		link = resume #continue
+		change = {
+			allegiance = portugal
+
+	option = {
+		text = No thanks.
+		link = resume #continue
+
+EVENT = {
+	ID = 14
+	title = Dutch influences
+	text = We have stumbled across a delightful Dutch expedition. Upon hearing that we are on our own, they have extended an offer to join the Dutch quest for the New World.
+
+	option = {
+		text = For Netherlands!
+		link = resume #continue
+		change = {
+			allegiance = netherlands
+
+	option = {
+		text = No thanks.
+		link = resume #continue
+
+EVENT = {
+	ID = 15
+	title = norwegian influences
+	text = We have stumbled across a delightful Norwegian expedition. Upon hearing that we are on our own, they have extended an offer to join the Norwegian quest for the New World.
+
+	option = {
+		text = For Norway!
+		link = resume #continue
+		change = {
+			allegiance = norway
+
+	option = {
+		text = No thanks.
+		link = resume #continue
+
+EVENT = {
+	ID = 16
+	title = Brave New World
+	text = Our expedition is bold in the face of adversity. We can prove to Europe that the world can be explored, even without the backing of a major country.
+
+	option = {
+		text = We are a beacon of success.
+		link = resume #continue
+		add = {
+			prestige = 20
+
+
+

@@ -1,0 +1,34 @@
+###DEFAULT###
+startup_event = yes
+image = startup_image.png
+
+###BEGIN###
+EVENT = {
+	ID = help
+	title = Game help
+	text = insert help text here
+
+	option = {
+		text = Thanks! I am now ready for my journey.
+		link = -1 #return to previous event (all events)
+
+EVENT = {
+	ID = 0
+	title = speed startup
+	text = lol yes
+
+	option = {
+		text = start now!
+		link = atlantic_north.1 #just start the game already
+		
+		change = {
+			role = merchant #Become a merchant
+			current_ship = carrack
+			allegiance = england
+
+		add = {
+			crew_amount = 150
+			food_amount = 2000
+			gold_amount = 500
+
+

@@ -1,0 +1,285 @@
+EVENT INDEX:
+0 = routes to important links
+10 = scientific breakthroughs
+16 = bad events
+20 = event chain
+
+NAMESPACE = RE_role_scholar
+
+###CONDITIONS###
+role = scholar
+
+###DEFAULT###
+random_event = yes
+
+###BEGIN###
+EVENT = {
+	ID = 1
+	title = Route to the north pole
+	text = After extensive study of the stars, you have devised a route to the north pole.
+
+	option = {
+		text = Lets go!
+		link = atlantic_north.23 #North pole
+
+	option = {
+		text = Continue as planned.
+		link = resume #continue
+
+EVENT = {
+	ID = 2
+	title = Route to Iceland
+	text = After extensive study of the stars, you have devised a route to Iceland.
+
+	option = {
+		text = Lets go!
+		link = atlantic_north.27 #Iceland
+
+	option = {
+		text = Continue as planned.
+		link = resume #continue
+
+EVENT = {
+	ID = 3
+	title = Route to Greenland
+	text = After extensive study of the stars, you have devised a route to Greenland.
+
+	option = {
+		text = Lets go!
+		link = atlantic_north.28 #Greenland
+
+	option = {
+		text = Continue as planned.
+		link = resume #continue
+
+EVENT = {
+	ID = 4
+	title = Route to the azores
+	text = After extensive study of the stars, you have devised a route to the Azores.
+
+	option = {
+		text = Lets go!
+		link = atlantic_central.4 #Azores
+
+	option = {
+		text = Continue as planned.
+		link = resume #continue
+
+EVENT = {
+	ID = 5
+	title = Route to Bermuda
+	text = After extensive study of the stars, you have devised a route to Bermuda.
+
+	option = {
+		text = Lets go!
+		link = atlantic_central.10 #Bermuda
+
+	option = {
+		text = Continue as planned.
+		link = resume #continue
+
+EVENT = {
+	ID = 6
+	title = Route to the Falklands
+	text = After extensive study of the stars, you have devised a route to the Falkland Islands.
+
+	option = {
+		text = Lets go!
+		link = atlantic_south.10 #Falklands
+
+	option = {
+		text = Continue as planned.
+		link = resume #continue
+
+EVENT = {
+	ID = 7
+	title = Route to the Cape
+	text = After extensive study of the stars, you have devised a route to the Cape of Good Hope.
+
+	option = {
+		text = Lets go!
+		link = africa.20 #Cape of Good Hope
+
+	option = {
+		text = Continue as planned.
+		link = resume #continue
+
+EVENT = {
+	ID = 8
+	title = Route to Europe
+	text = After extensive study of the stars, you have devised a route back to Europe.
+
+	option = {
+		text = Lets go!
+		link = game_end.1 #Europe
+
+	option = {
+		text = Continue as planned.
+		link = resume #continue
+
+EVENT = {
+	ID = 9
+	title = Route to the Caribbean
+	text = After extensive study of the stars, you have devised a route to the Caribbean.
+
+	option = {
+		text = Lets go!
+		link = caribbean.1 #Caribbean
+
+	option = {
+		text = Continue as planned.
+		link = resume #continue
+
+EVENT = {
+	ID = 10
+	title = scientific breakthrough: gravity
+	text = This expedition has given you plenty of time to study the world and the way things work. Now, you have devised a theory of gravity!
+	modify = {
+		add = {
+			discoveries = gravity
+
+	option = {
+		text = Publish immediately.
+		link = resume #Continue
+		add = {
+			prestige = 10
+
+	option = {
+		text = Use this knowledge to our advantage.
+		link = america_south.20 #victoria falls
+
+EVENT = {
+	ID = 11
+	title = scientific breakthrough: round earth
+	text = This expedition has given you plenty of time to study the world and the way things work. Now, you have devised a theory of that the earth is round!
+	modify = {
+		add = {
+			discoveries = round earth
+
+	option = {
+		text = Publish immediately.
+		link = resume #Continue
+		add = {
+			prestige = 10
+
+	option = {
+		text = Use this knowledge to our advantage.
+		link = atlantic_south.20 #mellegans straight
+
+EVENT = {
+	ID = 12
+	title = scientific breakthrough: gunpowder
+	text = This expedition has given you plenty of time to study the world and the way things work. Now, you have devised a theory of gunpowder!
+	modify = {
+		add = {
+			discoveries = gunpowder
+
+	option = {
+		text = Publish immediately.
+		link = resume #Continue
+		add = {
+			prestige = 10
+
+	option = {
+		text = Use this knowledge to our advantage.
+		link = america_south.50 #inca
+
+EVENT = {
+	ID = 13
+	title = scientific breakthrough: telescope
+	text = This expedition has given you plenty of time to study the world and the way things work. Now, you have devised a theory of the telescope!
+	modify = {
+		add = {
+			discoveries = telescope
+
+	option = {
+		text = Publish immediately.
+		link = resume #Continue
+		add = {
+			prestige = 10
+
+	option = {
+		text = Use this knowledge to our advantage.
+		link = atlantic_north.23 #north pole
+
+EVENT = {
+	ID = 14
+	title = scientific breakthrough: printing press
+	text = This expedition has given you plenty of time to study the world and the way things work. Now, you have devised a theory of printing!
+	modify = {
+		add = {
+			discoveries = printing press
+
+	option = {
+		text = Publish immediately.
+		link = resume #Continue
+		add = {
+			prestige = 10
+
+	option = {
+		text = Use this knowledge to our advantage.
+		link = africa.20 #cape of good hope
+
+EVENT = {
+	ID = 15
+	title = scientific breakthrough: evolution
+	text = This expedition has given you plenty of time to study the world and the way things work. Now, you have devised a theory of evolution!
+	modify = {
+		add = {
+			discoveries = evolution
+
+	option = {
+		text = Publish immediately.
+		link = resume #Continue
+		add = {
+			prestige = 10
+
+	option = {
+		text = Use this knowledge to our advantage.
+		link = america_south.10 #amazon forest
+
+EVENT = {
+	ID = 16
+	title = chemical explosion
+	text = While conducting intensive study and testing on of your theories you add two unknown chemicals together. As you swirl the flask they mix rapidly. The solution begins to bubble slightly and heat up. It seems intriguing so you add a little bit more chemical and suddenly… BOOM!
+
+	option = {
+		text = Luckily we only lost some food.
+		link = resume #Continue
+		conditions = {
+			food_amount = 10
+		subtract = {
+			food_amount = 10
+
+	option = {
+		text = Luckily we only lost a few coins.
+		link = resume #Continue
+		conditions = {
+			gold_amount = 10
+		subtract = {
+			gold_amount = 10
+
+	option = {
+		text = Unfortunately one of the chests melted.
+		link = resume #Continue
+		conditions = {
+			treasure_storage = 10
+		subtract = {
+			treasure_storage = 10
+
+	option = {
+		text = Unfortunately everyone saw that.
+		link = resume #Continue
+		subtract = {
+			prestige = 20
+
+EVENT = {
+	ID = 17
+	title = lost research
+	text = You have lost a number of your books that kept record of your scientific discoveries!
+
+	option = {
+		text = Well I suppose it is now history.
+		link = resume #Continue
+		subtract = {
+			prestige = 50

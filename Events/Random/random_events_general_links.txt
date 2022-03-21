@@ -1,0 +1,274 @@
+EVENT INDEX:
+0 = Pandoras Box
+10 = Cornucopia
+
+NAMESPACE = RE_G_links
+Entry events found in: random_events_general.txt
+
+###DEFAULT###
+random_event = yes
+linked_only = yes
+
+###BEGIN###
+EVENT = {
+	ID = 1 #Pandoras Box
+	title = Pandoras box: food
+	text = You open the box and what do you find? A bottomless pit to throw food into!
+	modify = {
+		multiply = {
+			food_amount = 0.8
+		
+	option = {
+		text = NOOO!
+		link = resume
+
+EVENT = {
+	ID = 2 #Pandoras Box
+	title = Pandoras box: crew
+	text = You open the box and what do you find? Festering zombies who demand a sacrifice!
+	modify = {
+		multiply = {
+			crew_amount = 0.8
+		
+	option = {
+		text = NOOO!
+		link = resume
+
+EVENT = {
+	ID = 3 #Pandoras Box
+	title = Pandoras box: gold
+	text = You open the box and what do you find? A slot machine that never wins!
+	modify = {
+		multiply = {
+			gold_amount = 0.8
+		
+	option = {
+		text = NOOO!
+		link = resume
+
+EVENT = {
+	ID = 4 #Pandoras Box
+	title = Pandoras box: treasure
+	text = You open the box and what do you find? An unbreakable safe to put goodies in!
+	modify = {
+		multiply = {
+			treasure_amount = 0.8
+		
+	option = {
+		text = NOOO!
+		link = resume
+
+EVENT = {
+	ID = 5 #Pandoras Box
+	title = Pandoras box: maps
+	text = You open the box and what do you find? Maps leading you right back to where you were!
+	modify = {
+		subtract = {
+			prestige = 25
+		
+	option = {
+		text = NOOO!
+		link = return
+
+EVENT = {
+	ID = 6 #Pandoras Box
+	title = Pandoras box: chests
+	text = You open the box and what do you find? Holes in your ship!
+	modify = {
+		multiply = {
+			treasure_storage = 0.8
+		
+	option = {
+		text = NOOO!
+		link = resume
+
+EVENT = {
+	ID = 7 #Pandoras Box
+	title = Pandoras box: empty
+	text = You open the box and what do you find? Absolutely nothing!
+		
+	option = {
+		text = That is a relief.
+		link = resume
+
+EVENT = {
+	ID = 10 #Cornucopia
+	title = Cornucopia: food
+	text = You look inside the cornucopia and what do you find? A basket full of food!
+	modify = {
+		add = {
+			food_amount = 50
+		
+	option = {
+		text = W00T!
+		link = resume
+
+EVENT = {
+	ID = 11 #cornucopia
+	title = cornucopia: crew
+	text = You look inside the cornucopia and what do you find? Long lost family members of your expedition!
+	modify = {
+		add = {
+			crew_amount = 40
+		
+	option = {
+		text = W00T!
+		link = resume
+
+EVENT = {
+	ID = 12 #cornucopia
+	title = cornucopia: gold
+	text = You look inside the cornucopia and what do you find? Lovely money!
+	modify = {
+		add = {
+			gold_amount = 30
+		
+	option = {
+		text = W00T!
+		link = resume
+
+EVENT = {
+	ID = 13 #cornucopia
+	title = cornucopia: treasure
+	text = You look inside the box and what do you find? Shiny trinkets and valuable treasure!
+	modify = {
+		add = {
+			treasure_amount = 20
+		
+	option = {
+		text = W00T!
+		link = resume
+
+EVENT = {
+	ID = 14 #cornucopia
+	title = cornucopia: maps
+	text = You look inside the cornucopia and what do you find? Maps of the so-called New World!
+	modify = {
+		add = {
+			discoveries = north america
+			discoveries = south america
+			prestige = 50
+		
+	option = {
+		text = W00T!
+		link = resume
+
+EVENT = {
+	ID = 15 #cornucopia
+	title = cornucopia: chests
+	text = You look inside the cornucopia and what do you find? More chests to store even more treasure!
+	modify = {
+		add = {
+			treasure_storage = 25
+		
+	option = {
+		text = W00T!
+		link = resume
+
+EVENT = {
+	ID = 16 #cornucopia
+	title = cornucopia: Encyclopedia
+	text = You look inside the box and what do you find? The biggest, fattest instruction manual known to mankind!
+		
+	option = {
+		text = W00T!
+		link = resume
+		change = {
+			role = merchant
+	option = {
+		text = W00T!
+		link = resume
+		change = {
+			role = admiral
+	option = {
+		text = W00T!
+		link = resume
+		change = {
+			role = explorer
+	option = {
+		text = W00T!
+		link = resume
+		change = {
+			role = peasant
+	option = {
+		text = W00T!
+		link = resume
+		change = {
+			role = scholar
+	option = {
+		text = W00T!
+		link = resume
+		change = {
+			role = missionary
+	option = {
+		text = W00T!
+		link = resume
+		change = {
+			role = colonist
+	option = {
+		text = W00T!
+		link = resume
+		change = {
+			role = head of state
+
+
+EVENT = {
+	ID = 17 #cornucopia
+	title = cornucopia: Loyalty
+	text = You look inside the cornucopia and what do you find? Documents that ensure loyalty from anyone in the world!
+		
+	option = {
+		text = W00T!
+		link = resume
+		change = {
+			allegiance = england
+	option = {
+		text = W00T!
+		link = resume
+		change = {
+			allegiance = france
+	option = {
+		text = W00T!
+		link = resume
+		change = {
+			allegiance = spain
+	option = {
+		text = W00T!
+		link = resume
+		change = {
+			allegiance = portugal
+	option = {
+		text = W00T!
+		link = resume
+		change = {
+			allegiance = netherlands
+	option = {
+		text = W00T!
+		link = resume
+		change = {
+			allegiance = norway
+	option = {
+		text = W00T!
+		link = resume
+		change = {
+			allegiance = china
+	option = {
+		text = W00T!
+		link = resume
+		change = {
+			allegiance = aztec
+	option = {
+		text = W00T!
+		link = resume
+		change = {
+			allegiance = none
+
+
+EVENT = {
+	ID = 18 #cornucopia
+	title = cornucopia: empty
+	text = You look inside the cornucopia and what do you find? Emptiness and sadness, cutting right through to the inner soul!
+		
+	option = {
+		text = This is sadness.
+		link = resume

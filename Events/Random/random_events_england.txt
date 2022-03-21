@@ -1,0 +1,127 @@
+EVENT INDEX:
+0 = all english events
+
+NAMESPACE = RE_ENG
+
+###CONDITIONS###
+allegiance = england
+
+###DEFAULT###
+random_event = yes
+
+###BEGIN###
+EVENT = {
+	ID = 1
+	title = Britannia rules the waves
+	text = Everybody cowers before the glory of our expedition. We fly the English flag of our supporters loud and proud and all will flee. Ships, men, goats, whales, the French.. no matter! All will worship us in awe.
+	
+	option = {
+		text = Glorious Britain!
+		link = resume #continue
+		add = {
+			prestige = 10
+	
+	option = {
+		text = We will always have the biggest and baddest ship on the sea!
+		link = resume #continue
+		conditions = {
+			role = admiral
+		add = {
+			treasure_storage = 10
+
+EVENT = {
+	ID = 2
+	title = Scottish ratbags
+	text = There are a bunch of Scots in your crew who keep causing trouble! They speak in a gobsmacking language. They wear tiny kilts and play bagpipes all day. What to do with them?
+	
+	option = {
+		text = Hi, ho! Off you go!
+		link = resume #continue
+		subtract = {
+			crew_amount = 10
+	
+	option = {
+		text = How bad can it be?
+		link = resume #continue
+		subtract = {
+			prestige = 10
+
+EVENT = {
+	ID = 3
+	title = Pressgangs
+	text = A bunch of lost men from another expedition have found their way to us. Or did we stumble across them? In any case, we could always do with more men.
+	
+	option = {
+		text = This lot will do.
+		link = resume #continue
+		add = {
+			crew_amount = 10
+	
+	option = {
+		text = Pillage them!
+		link = resume #continue
+		add = {
+			gold_amount = 10
+
+EVENT = {
+	ID = 4
+	title = dr who?
+	text = How can it be? Out here in the vast unknown is a box. A blue box. A blue box with a door. A blue box with a door and a person talking very fast coming out of it and a minion of some kind following behind.
+	text = They say they are here to save the world!
+	
+	option = {
+		text = Sorry, Dr Who?
+		link = resume #continue
+		add = {
+			prestige = 10
+	
+	option = {
+		text = Welcome to the crew!
+		link = resume #continue
+		conditions = {
+			role = admiral
+		add = {
+			crew_amount = 2
+			prestige = 5
+	
+	option = {
+		text = Eat them and take the magic box.
+		link = resume #continue
+		add = {
+			food_amount = 5
+			treasure_amount = 5
+
+	option = {
+		text = Follow them on their quest!
+		link = RE_country_links.0 #DR WHO event chain
+		conditions = {
+			role = peasant
+	
+EVENT = {
+	ID = 5
+	title = tea break
+	text = Oh boy! Would you look at the time? It is 4pm! Time for a cup of tea.
+	
+	option = {
+		text = Earl Grey please.
+		link = resume #continue
+		subtract = {
+			food_amount = 10
+	
+	option = {
+		text = English Breakfast please.
+		link = resume #continue
+		subtract = {
+			food_amount = 10
+		
+	option = {
+		text = Chai Vanilla please.
+		link = resume #continue
+		subtract = {
+			food_amount = 10
+		
+	option = {
+		text = Black Rose please.
+		link = resume #continue
+		subtract = {
+			food_amount = 10		

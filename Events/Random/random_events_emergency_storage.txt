@@ -1,0 +1,42 @@
+EVENT INDEX:
+00 = Emergency food
+
+NAMESPACE = RE_E_storage
+
+###CONDITIONS###
+~remaining_storage_space = 0
+
+###DEFAULT###
+random_event = yes
+
+###BEGIN###
+EVENT = {
+	ID = 1
+	title = Overhoarding
+	text = The ship is so full of stuff that it has become a sluggish beast and seems to have trouble getting anywhere fast.
+
+	option = {
+		text = We will need to get rid of some stuff.
+		link = resume #continue
+		multiply = {
+			sailing_speed_modifier = 0.8
+			duration = 188 #half a year of slow boat boiiii
+
+EVENT = {
+	ID = 2
+	title = Renovations
+	text = We could knock down some walls to free up space.
+
+	option = {
+		text = Take down every non-structural wall you can find.
+		link = resume #continue
+		conditions = {
+			prestige = 0
+		multiply = {
+			storage_space_modifier = 1.2
+		subtract = {
+			prestige = 100
+
+	option = {
+		text = It would be too embarrassing.
+		link = resume #continue

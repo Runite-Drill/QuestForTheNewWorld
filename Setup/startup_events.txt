@@ -1,0 +1,322 @@
+###DEFAULT###
+startup_event = yes
+image = startup_image.png
+
+###BEGIN###
+EVENT = {
+	ID = 0
+	title = the beginning of an adventure
+	text = The fifteenth century is soon coming to a close. The Italian Renaissance has transformed the thinking of Europe. Religion tensions are rising within the Catholic Church and the realm of the Holy Roman Empire is beginning to decline.
+	text = It is in this time that rumours of trade routes to the Far East may actually lie in the west. It is in this time that nations begin to adventure outside their known spheres. It is in this time, the Age of Exploration, that your great leader has put out a call to all who think they are worthy:
+	text = Can you adventure into the unknown, into the West? Can you safely journey to the beyond and return with the pearls of trade? Can you give up your life for the glory of the nation, with no certainty of return?
+	text = If you can do this, then we need you.
+		
+	option = {
+		text = I am a Merchant. A trade route unknown is a trade route unused.
+		link = 1 #Choose starting ship
+		
+		change = {
+			role = merchant #Become a merchant
+
+	option = {
+		text = I am an Admiral. A ship I can command, whether into the dusk or the fog.
+		link = 1 #Choose starting ship
+		
+		change = {
+			role = admiral #Become an admiral
+
+	option = {
+		text = I am an Explorer. There is only the yet-to-be-discovered.
+		link = 1 #Choose starting ship
+		
+		change = {
+			role = explorer #Become an explorer
+
+	option = {
+		text = I am a Peasant. I know the spirit of adventure and the hardworking life.
+		link = 1 #Choose starting ship
+		
+		change = {
+			role = peasant #Become a peasant
+
+EVENT = {
+	ID = 1
+	title = the mother ship
+	text = pick a boat
+		
+	option = {
+		text = I need to go low budget.
+		link = 2 #Choose modifications
+		
+		change = {
+			current_ship = canoe
+		#subtract = {
+			#gold_amount = 250
+
+	option = {
+		text = I want proven designs.
+		link = 2 #Choose modifications
+		
+		change = {
+			current_ship = galley
+		#subtract = {
+			#gold_amount = 1000
+
+	option = {
+		text = I want a ship made for exploring.
+		link = 2 #Choose modifications
+		
+		change = {
+			current_ship = caravel
+		#subtract = {
+			#gold_amount = 1500
+
+	option = {
+		text = I prefer big, beasty ships.
+		link = 2 #Choose modifications
+		
+		change = {
+			current_ship = carrack
+		#subtract = {
+			#gold_amount = 2500
+
+	option = {
+		text = I need to carry a lot of items
+		link = 2 #Choose modifications
+		
+		change = {
+			current_ship = cog
+		#subtract = {
+			#gold_amount = 1000
+
+EVENT = {
+	ID = 2
+	title = modifications
+	text = The court listens to your proposal with keen interest.
+	text = Oh! So you are a $ROLE$? You have a nice $CURRENT_SHIP$. But it only has so much space. How should we allocate this space?
+		
+	option = {
+		text = Fill the cargo hold with food!
+		link = 3 #Choose start location
+		
+		multiply = {
+			food_amount = 1.2 #More food in hold
+			treasure_storage = 0.8 #Less treasure can be brought home
+
+	option = {
+		text = We need more beds and more sailors!
+		link = 3 #Choose start location
+		
+		multiply = {
+			crew_amount = 1.2 #More crew
+			gold_amount = 0.8 #Pay monies to hire the crew
+
+	option = {
+		text = Keep as much empty as possible.
+		link = 3 #Choose start location
+		
+		multiply = {
+			treasure_storage = 1.2 #More treasure space
+
+	option = {
+		text = I want a bigger ship!
+		link = 3 #Choose start location
+
+		multiply = {
+			treasure_storage = 1.2 #bigger ship can carry bigger treasure!
+			food_amount = 1.2 #Bigger ship can carry more food
+			crew_amount = 1.2 #bigger ship
+			gold_amount = 0.5 #Buy a bigger ship - Less monies
+			
+
+	option = {
+		text = Downsize now.
+		link = 3 #Choose start location
+
+		multiply = {
+			gold_amount = 1.5 #Sell and buy smaller
+			treasure_storage = 0.8 #smaller ship
+			food_amount = 0.8 #smaller ship
+			crew_amount = 0.8 #smaller ship
+
+EVENT = {
+	ID = 3
+	title = quest for the new world
+	text = For many years there has been talk of a western route to the Orient. From where will we base our expedition?
+		
+	option = {
+		text = We will set sail from Bristol and aim to take passage in the North.
+		link = 4 #British flavour event
+		change = {
+			allegiance = england #Bonus score for surviving crew members
+		
+		
+	option = {
+		text = We will set sail from Normandy and try to stay clear of the Arctic.
+		link = 5 #French flavour event
+		change = {
+			allegiance = france #Bonus score for surviving food
+
+	option = {
+		text = We will set sail from Lisbon and attempt to follow the equator.
+		link = 6 #Portuguese flavour event
+		change = {
+			allegiance = portugal #Bonus score for prestige
+
+	option = {
+		text = We will set sail from Seville and see what is beyond Africa.
+		link = 7 #Spanish flavour event
+		change = {
+			allegiance = spain #Bonus score for treasure
+
+	option = {
+		text = Who cares? Lets just go!
+		link = 8 #Set sail
+
+		change = {
+			allegiance = none #bonus daily prestige
+		add = {
+			prestige = 20
+
+EVENT = {
+	ID = 4 
+	title = rule britannia
+	text = The English are honoured by your choice of commencing your expedition in their lands. For your loyalty, they wish to help you!
+		
+	option = {
+		text = With this reputation we can hire some more crew.
+		link = 8 #Set sail
+
+		multiply = {
+			crew_amount = 1.1
+		
+	option = {
+		text = Ask for donations.
+		link = 8 #Set sail
+
+		multiply = {
+			gold_amount = 1.1
+
+	option = {
+		text = We do not need their help.
+		link = 8 #Set sail
+
+		change = {
+			allegiance = none
+		add = {
+			prestige = 20
+
+EVENT = {
+	ID = 5 
+	title = Vive La France
+	text = The French are expecting great things of you. For your loyalty, they wish to help you!
+		
+	option = {
+		text = Take all of their pastries, we cannot go wrong!
+		link = 8 #Set sail
+
+		multiply = {
+			food_amount = 1.1
+		
+	option = {
+		text = Ask for donations.
+		link = 8 #Set sail
+
+		multiply = {
+			gold_amount = 1.1
+
+	option = {
+		text = We do not need their help.
+		link = 8 #Set sail
+
+		change = {
+			allegiance = none
+		add = {
+			prestige = 20
+
+EVENT = {
+	ID = 6 
+	title = Portuguese crown
+	text = The Portuguese are humbled by your representation of their realm in your mission. For your loyalty, they wish to help you!
+		
+	option = {
+		text = Take any help you need. They are willing.
+		link = 8 #Set sail
+
+		multiply = {
+			crew_amount = 1.05
+			treasure_storage = 1.05
+			food_amount = 1.05
+		
+	option = {
+		text = Ask for donations
+		link = 8 #Set sail
+
+		multiply = {
+			gold_amount = 1.1
+
+	option = {
+		text = We do not need their help.
+		link = 8 #Set sail
+
+		change = {
+			allegiance = none
+		add = {
+			prestige = 20
+
+EVENT = {
+	ID = 7 
+	title = spanish gold
+	text = The Spanish see opportunity by your quest passing through their land. For your loyalty, they wish to help you!
+		
+	option = {
+		text = They smell treasure and have equipped us accordingly.
+		link = 8 #Set sail
+
+		multiply = {
+			treasure_storage = 1.1
+		
+	option = {
+		text = Ask for donations
+		link = 8 #Set sail
+
+		multiply = {
+			gold_amount = 1.1
+
+	option = {
+		text = We do not need their help.
+		link = 8 #Set sail
+
+		change = {
+			allegiance = none
+		add = {
+			prestige = 20
+
+
+EVENT = {
+	ID = 8
+	title = The adventure begins
+	text = As the mainland drifts into the distance behind you the wind fills your sails and the sun glistens serenely off the gentle, rolling ocean.
+		
+	option = {
+		text = Let us turn north to the upper reaches of the Atlantic.
+		link = atlantic_north.1 #North Atlantic
+		conditions = {
+			allegiance = england, france, netherlands, norway, none
+		change = {
+			location = north atlantic
+		
+	option = {
+		text = Follow the equator as directly as possible.
+		link = atlantic_central.1 #Central Atlantic
+		change = {
+			location = central atlantic
+
+	option = {
+		text = Follow the coast of Africa and see where it takes us.
+		link = africa.1 #Africa
+		conditions = {
+			allegiance = spain, portugal, china, none
+		change = {
+			location = african coast
+

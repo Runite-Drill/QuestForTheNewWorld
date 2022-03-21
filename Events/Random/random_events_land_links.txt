@@ -1,0 +1,46 @@
+EVENT INDEX:
+0 = <event chain name>
+
+Linked events & event chains are found in: random_events_land_links.txt
+
+###DEFAULT###
+random_event = yes
+linked_only = yes
+
+###BEGIN###
+EVENT = {
+	ID = 0
+	title = land event chain
+	text = Look what you found!
+	
+	option = {
+		text = Wonderful!
+		link = -2 #continue
+		add = {
+			crew_amount = 10
+		condition = {
+			role = admiral
+	
+	option = {
+		text = Wonderful!
+		link = -2 #continue
+		add = {
+			gold_amount = 10
+		condition = {
+			role = merchant
+		
+	option = {
+		text = Wonderful!
+		link = -2 #continue
+		add = {
+			gold_amount = 10
+		condition = {
+			role = explorer
+		
+	option = {
+		text = Wonderful!
+		link = -2 #continue
+		add = {
+			treasure_amount = 10
+		condition = {
+			role = peasant

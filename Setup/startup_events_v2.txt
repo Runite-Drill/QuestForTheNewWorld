@@ -1,0 +1,491 @@
+###DEFAULT###
+startup_event = yes
+image = startup_image.png
+
+###BEGIN###
+EVENT = {
+	ID = 0
+	title = Who are you?
+	text = It is the end of the fifteenth century and European interests in the Orient. With so many exotic wares being discovered and new luxuries being traded demands are rising for faster and safer routes east.
+	text = Rumours are circulating in the courts of royalty that in fact the world may not be flat, but round. The only logical conclusion from this is that the unexplored seas to the west can lead only to the east.
+	text = Like your kin before you and as a proud and ambitious citizen of Europe you have come before the highest nobility to seek their blessing in your voyage west. You cannot promise them success, but nor do you gaurantee them failure. You are but one person, eager to join the Age of Discovery.
+	text = lol \n lol
+	text = You may have the finance, but before they will support your journey, the court ponders what skills you might have that could lead to success. Your failure would be their embarrassment. Are you a blacksmith, skilled in weaponcraft? Or maybe you are a farmer, with unparalled knowledge of plants and fauna.
+	text = \n
+	text = You begin to speak, and with unabated courage you begin to share your history...
+
+	option = {
+		text = I am a Merchant. A trade route unknown is a trade route unused.
+		link = 1 #Choose starting ship
+		
+		change = {
+			role = merchant #Become a merchant	
+
+	option = {
+		text = I am an Admiral. A ship I can command, whether into the dusk or the dawn.
+		link = 1 #Choose starting ship
+		
+		change = {
+			role = admiral #Become an admiral
+
+	option = {
+		text = I am an Explorer. There is no unknown, only the yet-to-be-discovered.
+		link = 1 #Choose starting ship
+		
+		change = {
+			role = explorer #Become an explorer
+
+	option = {
+		text = I am a Peasant. I know the spirit of adventure and the hardworking life.
+		link = 1 #Choose starting ship
+		
+		change = {
+			role = peasant #Become a peasant
+
+
+
+EVENT = {
+	ID = 1
+	title = the mother ship
+	text = You begin to talk about your life as a $ROLE$. You weave wonderful stories of joy and success. The court seems delighted and it is not long until they unanimously agree to support your cause. With their support and your own money, there is much opportunity to bring your dream of exploration to reality.
+	text = They offer to sell you wares and goods of all kind. Some useful, some not. Of course, it is agreed that rum is always useful. But soon the talk turns to more important things. What crew will you take? And what ship? How much food do you need for the journey?
+	text = These are questions you do not exactly know the answer to, but the court gives you advice. Maybe a grand warship? But no! A small caraval will find success much quicker. Perhaps a galleas in the middle?
+	text = Space is important, so you can bring back treasure and other luxurious goods. But then they argue that speed is also of importance. After all, if a new route is discovered, they can capitalise it sooner. Unfortunately, speed and size do not always mix.
+	text = Although they cannot all decide, they agree to offer you a selection based on your wealth. When it comes to choosing a ship, ultimately the choice is yours.
+		
+	option = {
+		text = I need to go low budget.
+		link = 2 #Choose modifications
+		
+		conditions = {
+			gold_amount = 250
+		change = {
+			current_ship = canoe
+		subtract = {
+			gold_amount = 250
+
+	option = {
+		text = I want proven designs.
+		link = 2 #Choose modifications
+		
+		conditions = {
+			gold_amount = 1000
+		change = {
+			current_ship = galley
+		subtract = {
+			gold_amount = 1000
+
+	option = {
+		text = I want a ship made for exploring.
+		link = 2 #Choose modifications
+		
+		conditions = {
+			gold_amount = 1500
+		change = {
+			current_ship = caravel
+		subtract = {
+			gold_amount = 1500
+
+	option = {
+		text = I prefer big, beasty ships.
+		link = 2 #Choose modifications
+
+		conditions = {
+			gold_amount = 2500		
+		change = {
+			current_ship = carrack
+		subtract = {
+			gold_amount = 2500
+
+	option = {
+		text = I need to carry a lot of items.
+		link = 2 #Choose modifications
+		conditions = {
+			gold_amount = 1000
+		
+		change = {
+			current_ship = cog
+		subtract = {
+			gold_amount = 1000
+
+	option = {
+		text = I will swim.
+		link = 2 #Choose modifications
+		
+		change = {
+			current_ship = no_ship
+
+EVENT = {
+	ID = 2
+	title = modifications
+	text = The court listens to your proposal with keen interest.
+	text = Oh! So you are a $ROLE$? You have a nice $CURRENT_SHIP$. But it is not as cool as the Vasa. Maybe you should make some sick modifications?
+		
+	option = {
+		text = Bigger cargo hold.
+		link = 3 #hire crew
+		
+		conditions = {
+			gold_amount = 500
+		multiply = {
+			storage_space_modifier = 1.2 #More sotrage
+			sail_speed_modifier = 0.9 #Slower ship
+
+		subtract = {
+			gold_amount = 500
+		
+
+	option = {
+		text = More sails.
+		link = 3 #hire crew
+		
+		conditions = {
+			gold_amount = 750
+		multiply = {
+			sail_speed_modifier = 1.2 #faster ship
+
+		subtract = {
+			gold_amount = 750
+
+	option = {
+		text = Golden figurehead.
+		link = 3 #hire crew
+		
+		conditions = {
+			gold_amount = 1000
+		multiply = {
+			prestige_decay_modifier = 0.8 #Glorious ship
+
+		subtract = {
+			gold_amount = 1000
+
+	option = {
+		text = Supersize everything
+		link = 3 #hire crew
+
+		conditions = {
+			gold_amount = 1250
+		multiply = {
+			sail_speed_modifier = 1.1 #bigger, faster ship
+			death_rate_modifier = 0.9 #he protec
+			storage_space_modifier = 1.1 #bigger ship
+			
+		subtract = {
+			gold_amount = 1250
+
+	option = {
+		text = Downsize now.
+		link = 3 #hire crew
+
+		multiply = {
+			sail_speed_modifier = 0.8 #smaller ship
+			storage_space_modifier = 0.8 #smaller ship
+			death_rate_modifier = 1.2 #smaller ship
+		
+		add = {
+			gold_amount = 1000
+
+	option = {
+		text = My ship is perfect, just the way it is.
+		link = 3 #hire crew
+
+
+EVENT = {
+	ID = 3
+	title = Pressgangs
+	text = A ship without a crew? HA! Hire some now.
+		
+	option = {
+		text = Small crew.
+		link = 4 #order food
+		
+		conditions = {
+			gold_amount = 100
+		add = {
+			crew_amount = 50
+
+		subtract = {
+			gold_amount = 100
+
+	option = {
+		text = Medium crew.
+		link = 4 #order food
+		
+		conditions = {
+			gold_amount = 250
+		add = {
+			crew_amount = 100
+
+		subtract = {
+			gold_amount = 250
+
+	option = {
+		text = Big crew.
+		link = 4 #order food
+		
+		conditions = {
+			gold_amount = 500
+		add = {
+			crew_amount = 150
+
+		subtract = {
+			gold_amount = 500
+
+	option = {
+		text = Huge crew.
+		link = 4 #order food
+		
+		conditions = {
+			gold_amount = 1000
+		add = {
+			crew_amount = 250
+
+		subtract = {
+			gold_amount = 1000
+
+	option = {
+		text = I cannot afford that. I will just have to convince some friends.
+		link = 4 #order food
+		
+		add = {
+			crew_amount = 10
+
+EVENT = {
+	ID = 4
+	title = Food supplies
+	text = How much food should we bring?
+		
+	option = {
+		text = Little food.
+		link = 5 #choose allegiance
+		
+		conditions = {
+			gold_amount = 100
+		add = {
+			food_amount = 250
+
+		subtract = {
+			gold_amount = 100
+
+	option = {
+		text = Some food.
+		link = 5 #choose allegiance
+		
+		conditions = {
+			gold_amount = 250
+		add = {
+			food_amount = 500
+
+		subtract = {
+			gold_amount = 250
+
+	option = {
+		text = Lots of food.
+		link = 5 #choose allegiance
+		
+		conditions = {
+			gold_amount = 500
+		add = {
+			food_amount = 1000
+
+		subtract = {
+			gold_amount = 500
+
+	option = {
+		text = ALL THE FOOD!
+		link = 5 #choose allegiance
+		
+		conditions = {
+			gold_amount = 1000
+		add = {
+			food_amount = 2500
+
+		subtract = {
+			gold_amount = 1000
+
+	option = {
+		text = I cannot afford that. I will just have to steal some croissants.
+		link = 5 #choose allegiance
+		
+		add = {
+			food_amount = 100
+
+EVENT = {
+	ID = 5
+	title = quest for the new world
+	text = For many years there has been talk of a western route to the Orient. From where will we base our expedition?
+		
+	option = {
+		text = We will set sail from Bristol and aim to take passage in the North.
+		link = 6 #British flavour event
+		change = {
+			allegiance = england #Bonus score for surviving crew members
+		
+		
+	option = {
+		text = We will set sail from Normandy and try to stay clear of the Arctic.
+		link = 7 #French flavour event
+		change = {
+			allegiance = france #Bonus score for surviving food
+
+	option = {
+		text = We will set sail from Lisbon and attempt to follow the equator.
+		link = 8 #Portuguese flavour event
+		change = {
+			allegiance = portugal #Bonus score for prestige
+
+	option = {
+		text = We will set sail from Seville and see what is beyond Africa.
+		link = 9 #Spanish flavour event
+		change = {
+			allegiance = spain #Bonus score for treasure
+
+	option = {
+		text = Who cares? Lets just go!
+		link = 10 #Set sail
+
+		change = {
+			allegiance = none #bonus daily prestige
+		add = {
+			prestige = 20
+
+EVENT = {
+	ID = 6 
+	title = rule britannia
+	text = The English are honoured by your choice of commencing your expedition in their lands. For your loyalty, they wish to help you!
+		
+	option = {
+		text = With this reputation we can hire some more crew.
+		link = 10 #Set sail
+
+		multiply = {
+			crew_amount = 1.1
+		
+	option = {
+		text = Ask for donations.
+		link = 10 #Set sail
+
+		multiply = {
+			gold_amount = 1.1
+
+	option = {
+		text = We do not need their help.
+		link = 10 #Set sail
+
+		change = {
+			allegiance = none
+		add = {
+			prestige = 20
+
+EVENT = {
+	ID = 7 
+	title = Vive La France
+	text = The French are expecting great things of you. For your loyalty, they wish to help you!
+		
+	option = {
+		text = Take all of their pastries, we cannot go wrong!
+		link = 10 #Set sail
+
+		multiply = {
+			food_amount = 1.1
+		
+	option = {
+		text = Ask for donations.
+		link = 10 #Set sail
+
+		multiply = {
+			gold_amount = 1.1
+
+	option = {
+		text = We do not need their help.
+		link = 10 #Set sail
+
+		change = {
+			allegiance = none
+		add = {
+			prestige = 20
+
+EVENT = {
+	ID = 8 
+	title = Portuguese crown
+	text = The Portuguese are humbled by your representation of their realm in your mission. For your loyalty, they wish to help you!
+		
+	option = {
+		text = Take all of their best navigators!
+		link = 10 #Set sail
+
+		multiply = {
+			sail_speed_modifier = 1.1
+		
+	option = {
+		text = Ask for donations
+		link = 10 #Set sail
+
+		multiply = {
+			gold_amount = 1.1
+
+	option = {
+		text = We do not need their help.
+		link = 10 #Set sail
+
+		change = {
+			allegiance = none
+		add = {
+			prestige = 20
+
+EVENT = {
+	ID = 9 
+	title = spanish gold
+	text = The Spanish see opportunity by your quest passing through their land. For your loyalty, they wish to help you!
+		
+	option = {
+		text = They smell treasure and have equipped us accordingly.
+		link = 10 #Set sail
+
+		multiply = {
+			storage_space_modifier = 1.1
+		
+	option = {
+		text = Ask for donations
+		link = 10 #Set sail
+
+		multiply = {
+			gold_amount = 1.1
+
+	option = {
+		text = We do not need their help.
+		link = 10 #Set sail
+
+		change = {
+			allegiance = none
+		add = {
+			prestige = 20
+
+
+EVENT = {
+	ID = 10
+	title = The adventure begins
+	text = As the mainland drifts into the distance behind you the wind fills your sails and the sun glistens serenely off the gentle, rolling ocean.
+		
+	option = {
+		text = Let us turn north to the upper reaches of the Atlantic.
+		link = atlantic_north.1 #North Atlantic
+		conditions = {
+			allegiance = england, france, netherlands, norway, none
+		change = {
+			location = north atlantic
+		
+	option = {
+		text = Follow the equator as directly as possible.
+		link = atlantic_central.1 #Central Atlantic
+		change = {
+			location = central atlantic
+
+	option = {
+		text = Follow the coast of Africa and see where it takes us.
+		link = africa.1 #Africa
+		conditions = {
+			allegiance = spain, portugal, china, none
+		change = {
+			location = african coast
+

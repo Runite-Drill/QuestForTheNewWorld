@@ -1,0 +1,562 @@
+EVENT INDEX:
+00 = North Atlantic events
+
+NAMESPACE = atlantic_north #not yet coded
+
+###DEFAULT###
+location = north atlantic
+
+###BEGIN###
+EVENT = {
+	ID = 1
+	title = north atlantic voyage
+	text = Our journey begins here in the Atlantic. The familiar waters off the coast of France. The English channel lies behind, the scent of fresh bread and memories of home fading slowly into the horizon as the journey begins.
+		
+	option = {
+		text = Lets just go due west where it is warmer.
+		link = 2 #Open Atlantic
+		
+	option = {
+		text = Let us see what is to the north-west, but we will stay away from the cold.
+		link = 7 #North Atlantic
+
+	option = {
+		text = We will follow the coast of England to the north.
+		link = 14 #North britain
+
+EVENT = {
+	ID = 2
+	title = Life at sea
+	text = As we set off to the west you feel full of vigour and excitement. We are going on an adventure!
+	text = Your charts tell you that it would be only a five day detour to visit the Azores. Perhaps it is a chance to restock and gather knowledge?
+		
+	option = {
+		text = Continue on course!
+		link = 3 #Open Atlantic
+		
+	option = {
+		text = Maybe we should stop by the Azores?
+		link = atlantic_central.2 #Azores
+
+EVENT = {
+	ID = 3
+	title = Land gamble
+	text = They say there are rumours of land further in the north, yet our beliefs hold true to find land in the west. Which way should we go?
+		
+	option = {
+		text = West I tell you!
+		link = 4 #Uncharted waters
+		
+	option = {
+		text = North, I say!
+		link = 10 #Open Ocean
+
+EVENT = {
+	ID = 4
+	title = Uncharted Waters
+	text = We have done great work exploring the seas that no man has previously! There appears to be nothing out here to see, other than endless water. Nevertheless, it is still thrilling to know that you are on the first known ship to pass through these waters!
+		
+	option = {
+		text = The spirit of adventure propels us further west!
+		link = 5 #Land?
+		
+	option = {
+		text = We have done good work, but we should restock in the Azores.
+		link = atlantic_central.2 #Azores
+
+EVENT = {
+	ID = 5
+	title = land!
+	text = Just as the crews moral begins to the petter, a new world comes into sight. There appears to be a large peninsula and perhaps some islands. There is a passage between them. Marvellous!
+	option = {
+		text = Lets see what land is to the south.
+		link = 6 #Canada south
+		
+	option = {
+		text = Lets see what land is to the north.
+		link = 12 #canada north
+
+	option = {
+		text = Lets see what land is beyond this passage.
+		link = 13 #Canada bay
+
+EVENT = {
+	ID = 6
+	title = more land
+	text = You sail past the mouth of the passage and follow the coastline south. Your cartographer carefully maps everything that you see. Perhaps we should make land and see what this new world has to offer?
+	option = {
+		text = Good idea!
+		link = north_america_canada.6 #Canada south
+		
+	option = {
+		text = Lets keep following the coastline south.
+		link = atlantic_central.12 #north USA
+
+EVENT = {
+	ID = 7
+	title = Rough waters
+	text = The Atlantic waters are rough on your ship as your journey begins. It is hard to imagine what might be out there, or even if the you will make it. Maybe we should try and preserve ourselves.
+	option = {
+		text = I like it in the North Atlantic.
+		link = 8 #north atlantic
+		
+	option = {
+		text = Lets go somewhere a bit calmer.
+		link = 10 #open ocean
+
+EVENT = {
+	ID = 8
+	title = Great North Atlantic
+	text = As you muse upon your journey you find some beauty in the water you now float in. Although it would seem there is nothing out here.
+	option = {
+		text = Maybe we need to go even further north.
+		link = 9 #Fisherman
+		
+	option = {
+		text = Maybe heading south is the best idea
+		link = 11 #warmer water
+
+EVENT = {
+	ID = 9
+	title = The fisherman
+	text = As you travel further north and the air gets colder you begin to doubt your chances of finding anything. Then, as if an offering from above, you spot a small boat floating in the water. And in the boat is a figure with a net. A fisherman. With great curiosity your draw your ship nearer, taking care not to alarm the person or present yourself as a threat. Your efforts are useless. You draw near enough for the fisherman to notice you, panic and rapid begin to paddle away. Poor guy. But the message is clear, there must some kind of land with a settlement nearby.
+	option = {
+		text = Follow him!
+		link = 17 #Norwegian settlement
+		
+	option = {
+		text = Lets try his fishing spot.
+		link = 39 #Food jackpot.
+
+EVENT = {
+	ID = 10
+	title = Open Ocean
+	text = Now, we are sailing in a vast open ocean of nothingness. Not an island in sight. Only the infinite blue horizon, stretching in every direction. Perhaps we should consult with out advisors and decide on a heading. The lookout suggests perhaps we should move out toward the north. It may be colder and more dangerous, but there must be land somewhere amongst the ice sheets of the arctic. You map keeper disagrees. The charts he has been keeping indicate a strong possibility of reaching the East by continuing our course west.
+	option = {
+		text = Follow the lookout.
+		link = 8 #north atlantic
+		
+	option = {
+		text = Follow the map keeper.
+		link = 11 #songs of the sea
+
+	option = {
+		text = Follow your own instincts.
+		link = 101 #open lost - game over
+
+EVENT = {
+	ID = 11
+	title = Songs of the Sea
+	text = Sailing has been smooth and uneventful the last few days. Your journey across the ocean has not yet yielded benefits, but your crew stay positive with tales of home and songs of the sea. Any disagreements between friends quickly melts as well as become infected by the jolly life of freedom aboard the ship. Plenty of rum is drank and many an orange consumed. Ave! They sing, the old phrase coming back from the depths of history. Glory be to us, our quest and...
+
+	option = {
+		text = The spirit of adventure!
+		link = 12 #Canada island
+		
+	option = {
+		text = The spirit of discovery!
+		link = 4 #more open ocean
+
+EVENT = {
+	ID = 12
+	title = The Spirit of Adventure
+	text = What better way to call forth the spirit of adventure than to discover a new land ripe for exploring? After many days and nights of mutton-filled feasts and jolly song we have fresh new land entering our sights. The route to the East must be true! It is beautiful. Lush green forests and stark mountains. Your map keeper is going crazy with delight and the lookout just won’t keep quiet about all the land he can see. This is truly something marvellous.
+
+	option = {
+		text = We shall make landfall here!
+		link = 29 #canada-land
+
+	option = {
+		text = We shall find a more suitable location to make landfall!
+		link = 13 #canada
+
+EVENT = {
+	ID = 13
+	title = big canada bay
+	text = words
+
+
+	option = {
+		text = time to land in canada
+		link = 29 #canada-land
+
+
+EVENT = {
+	ID = 14
+	title = beyond the isles
+	text = For many days the air has grown colder. The wind has been frigid and rain falls in cold, fat drops. The English coast, whilst beautiful, has long vanished into the distance. Fortunately, your cabins are well kept and you crew stay warm from hard labour and hot mead. The journey continues!
+		
+	option = {
+		text = Turn west. We do not need any more cold than necessary.
+		link = 15 #far north
+
+	option = {
+		text = Continue north!
+		link = 21 #Arctic circle 
+
+EVENT = {
+	ID = 15
+	title = cold icy ocean
+	text = it is still cold, but the crew are getting used to it.
+
+	option = {
+		text = Embrace the cold.
+		link = 16 #greenland coast
+
+	option = {
+		text = The cold is still too much, turn south.
+		link = 8 #open ocean
+
+
+EVENT = {
+	ID = 16
+	title = greenland coast
+	text = it is still cold, but the crew are getting used to it.
+
+	option = {
+		text = This place looks too dangerous, we better head back out to sea.
+		link = 101 #death
+
+	option = {
+		text = We must have a look around and find out what is here!
+		link = 17 #norwegians
+
+EVENT = {
+	ID = 17
+	title = Norwegian settlement
+	text = With some careful navigation you come across a small village. They are Norwegian Settlers! You did not know Norway was colonising.
+	modify = {
+		add = {
+			discoveries = norwegian greenland
+
+	option = {
+		text = Search for the north-west passage.
+		link = 18 #North Canada
+
+	option = {
+		text = Try to find this mysterious land to the south.
+		link = 29 #North Canada Coast
+
+	option = {
+		text = Explore beyond the village in search of food.
+		link = 104 #Greenland Death
+		conditions = {
+			role = explorer
+
+	option = {
+		text = Trade with them for food.
+		link = repeat
+		conditions = {
+			role = merchant
+			gold_amount = 10
+		add = {
+			food_amount = 25
+		subtract = {
+			gold_amount = 10
+
+	option = {
+		text = Trade with them for food.
+		link = repeat
+		conditions = {
+			~role = merchant
+			gold_amount = 20
+		add = {
+			food_amount = 25
+		subtract = {
+			gold_amount = 20
+
+	option = {
+		text = Pledge allegiance to Norway.
+		link = repeat #MOVE INTO AN EVENT CHAIN
+		conditions = {
+			~allegiance = norway
+			~role = head of state
+		change = {
+			allegiance = norway
+
+EVENT = {
+	ID = 18
+	title = The great ice shelf
+	text = After many cold days and many cold nights the glistening blue of the ocean begins to give way to the faded white of ice. As travel continues this ice begins to gain depth and height, eventually becoming a great ice shelf your path. If this is the passage then it must be at this point that it splits in two.
+
+	option = {
+		text = Perhaps the north will hold passage around the ice.
+		link = 19 #Narrow passage
+
+	option = {
+		text = Perhaps the west will hold passage around the ice.
+		link = 32 #Wide passage
+
+EVENT = {
+	ID = 19
+	title = Western pass
+	text = After passing through a narrow passage it quickly becomes apparent this is no no ordinary ice shelf. The land to the south intrigues you, but the lust for discovery to the west compels you onward. Eventually another landmass looms ahead and the passage splits, again, in two.
+
+	option = {
+		text = The passage to the north will lead us out of this maze.
+		link = 105 #freeze to death
+
+	option = {
+		text = We must find passage to the south.
+		link = 20 #the bay
+
+EVENT = {
+	ID = 20
+	title = The great bay
+	text = As the ship travels south the passage opens up wide. Land lines the horizon on both sides. Surely this cannot continue forever. Indeed, a few days later and land begins to fill the horizon on almost all sides. The ship has entered a great bay and a whole new land. You have not found a passage to the east, but you have found a mysterious new land.
+
+	option = {
+		text = We must make landfall at once!
+		link = 20 #north canada land
+		
+		
+EVENT = {
+	ID = 21
+	title = the arctic
+	text = Vast expanses of ice sheets loom ahead of your ship. There is no way you could possibly break through it. The temperature is freezing and you have to avoid sailing too fast to avoid the wind chill. Your lookout spots a waterway through the ice and into the beyond. The ice around here has been mapped before. Is it really worth submitting yourself and your crew to this cold-hearted punishment?
+		
+	option = {
+		text = Too right, let us sail back to warmer waters.
+		link = 27
+		
+	option = {
+		text = The allure of a new route to the east is just too great. Proceed!
+		link = 22
+		conditions = {
+			role = merchant
+
+	option = {
+		text = We only just started. We cannot turn back now.
+		link = 22
+		conditions = {
+			~role = merchant
+
+EVENT = {
+	ID = 22
+	title = breaking the ice
+	text = You go deeper and deeper into the Arctic. This is where no man has gone before.
+	text = It is difficult to know where land stops and ice begins. Luckily, it is a fairly warm summer and your ship does not find it too hard to crush through the thin ice.
+	text = It does not last forever. Eventually it begins to get tougher and tougher. The ship is going nowhere. It is cold and it is hopeless. We need to turn back or everyone will perish.
+
+	option = {
+		text = The summer will propel us through.
+		link = 23 #north pole
+		
+	option = {
+		text = Perhaps we should loop around to the West.
+		link = 34 #north greenland
+
+EVENT = {
+	ID = 23
+	title = the north pole
+	text = Your cartographer calls out to you. The North Pole! We have made it! We are on top of the world! For all the joy this brings, your crew still want to turn back.
+	modify = {
+		add = {
+			discoveries = north pole
+	option = {
+		text = Press on.
+		link = 103 #ARCTIC DEATH
+
+	option = {
+		text = It is time to turn back and stay out of the Arctic for good.
+		link = 37 #far north greenland
+
+	option = {
+		text = Man up, lads. We are only half-way!
+		link = 24 #far north Canada
+		conditions = {
+			role = admiral
+
+EVENT = {
+	ID = 24
+	title = breaking ice
+	text = Exhilarated by the discoveries, the crew presses on. The ship breaks the ice, no matter how sluggish it may be. The Arctic wind fills her sails and drives her forward. It can only get warmer from here.
+
+	option = {
+		text = Into the east we go!
+		link = 25 #North Alaska approach
+
+EVENT = {
+	ID = 25
+	title = Great fjords
+	text = As you navigate the ship between unknown islands and through uncharted channels the grandeur of the journey sinks into the crew. They have travelled through the bitter ice and into the east to find new lands. And new lands they have found. So now, passing amongst great fjords you cannot help but smile, for this is truly remarkable.
+
+	option = {
+		text = And we will not cease to discover even more.
+		link = 26 #North Alaska coast
+
+EVENT = {
+	ID = 26
+	title = North Alaskan Coast
+	text = As you navigate the ship between unknown islands and through uncharted channels the grandeur of the journey sinks into the crew. They have travelled through the bitter ice and into the east to find new lands. And new lands they have found. So now, passing amongst great fjords you cannot help but smile, for this is truly remarkable.
+
+	option = {
+		text = And we will not cease to discover even more.
+		link = 26 #North Alaska coast
+
+EVENT = {
+	ID = 27
+	title = iceland
+	text = As you escape the ice you come across the familiar island of Iceland! The locals tell you stories of some far away land, Greenland. There are also rumours of a lonely island, Bermuda, out in the Atlantic expanse. One joker even mentions something about travelling east past north Scandinavia.
+
+	modify = {
+		add = {
+			discoveries = iceland
+		
+	option = {
+		text = Let us head toward Greenland.
+		link = 28 #to greenland
+		
+	option = {
+		text = Let us head toward Bermuda.
+		link = 15 #to bermuda
+
+	option = {
+		text = Let us head toward Lappland.
+		link = 102 #Back in Europe - embarrassing!
+
+	option = {
+		text = Did they say something about a festival?
+		link = 50 #to Iceland festival
+		conditions = {
+			role = peasant
+		add = {
+			food_amount = 25
+
+	option = {
+		text = Why not stay here for a little bit and check out the markets first?
+		link = 51 #Iceland market - buy food!
+		conditions = {
+			role = merchant
+			gold_amount = 10
+
+EVENT = {
+	ID = 28
+	title = Greenland
+	text = Welcome to Greenland!
+	modify = {
+		add = {
+			discoveries = greenland
+
+	option = {
+		text = Lets explore this place.
+		link = 30 #Greenland - village!
+
+	option = {
+		text = Follow the coastline south.
+		link = 16 #South greenland
+
+EVENT = {
+	ID = 30
+	title = Native village
+	text = What?! You found a village of people here in Greenland! They appear to be natives. After some work the language barrier is crudely broken. You explain your quest to them, with some effort. They are intrigued. They say they can take you to the north pole, or suggest that you may find something off the west coast.
+	modify = {
+		add = {
+			discoveries = greenland village
+
+	option = {
+		text = Visiting the North Pole sounds like a great side-quest.
+		link = 35 #North Greenland
+
+	option = {
+		text = Guide us to the west coast.
+		link = 31 #Almost Canada
+
+	option = {
+		text = Purge them. This belongs to $ALLEGIANCE$ now.
+		link = 40 #Razed Town
+		conditions = {
+			role = colonist
+			~allegiance = none
+		add = {
+			food_amount = 25
+			gold_amount = 15
+			crew_amount = 5
+		subtract = {
+			prestige = 20
+
+	option = {
+		text = They will be sacrificed in the name of the Aztec Gods!
+		link = 40 #Razed Town
+		conditions = {
+			allegiance = aztec
+		add = {
+			score = 100
+
+EVENT = {
+	ID = 32
+	title = Northern pass
+	text = The passage is wide. On one horizon is a great ice shelf and on the other a great icy land. The air grows cooler as the ship heads further toward the Arctic, but the sense of adventure invigorates your crew as they sail across the ocean.
+
+	option = {
+		text = We shall continue forward!
+		link = 33 #Narrow passage
+
+EVENT = {
+	ID = 39
+	title = Fishermans delight
+	text = The fisherman certainly knew what he was doing! There is fish everywhere here. The crew is delighted. There is plenty of food to resupply. After a long period of intensive fishing and eating your crew are ready to go! Only… which direction did the fisherman go?
+	modify = {
+		add = {
+			food_amount = 30
+
+	option = {
+		text = Ummm…
+		link = 16,11,29,101 #Random of: north, south, west, east
+	conditions = {
+		~role = explorer
+
+	option = {
+		text = I got this. Lets go north.
+		link = 16
+	conditions = {
+		role = explorer
+
+	option = {
+		text = I got this. Lets go east.
+		link = 101 #Completely lost - death at sea
+	conditions = {
+		role = explorer
+
+	option = {
+		text = I got this. Lets go south.
+		link = 11 #Norwegian settlement
+	conditions = {
+		role = explorer
+
+	option = {
+		text = I got this. Lets go west.
+		link = 29 #Norwegian settlement
+	conditions = {
+		role = explorer
+
+EVENT = {
+	ID = 40
+	title = The Massacre
+	text = You have slaughtered them all! The whole village! But only now where do we go?
+
+	option = {
+		text = It is this way.
+		link = 17,28,31,35,104 #Somewhere randomly in Greenland
+
+	option = {
+		text = No! It is this way.
+		link = 17,28,31,35,104 #Somewhere randomly in Greenland
+
+	option = {
+		text = Umm.. are you sure it is not this way?
+		link = 17,28,31,35,104 #Somewhere randomly in Greenland
+
+	option = {
+		text = Maybe it is this way?
+		link = 17,28,31,35,104 #Somewhere randomly in Greenland
+
+	option = {
+		text = Okay, definitely this way.
+		link = 17,28,31,35,104 #Somewhere randomly in Greenland
+	
+	option = {
+		text = Get a grip.
+		link = 17 #Norwegian village
+		conditions = {
+			role = explorer

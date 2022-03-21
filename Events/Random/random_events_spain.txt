@@ -1,0 +1,140 @@
+EVENT INDEX:
+0 = all spanish events
+
+NAMESPACE = RE_ESP
+
+###CONDITIONS###
+allegiance = spain
+
+###DEFAULT###
+random_event = yes
+
+###BEGIN###
+EVENT = {
+	ID = 1
+	title = nobody expects…
+	text = …The Spanish Inquisition!
+	
+	option = {
+		text = I have been training my whole life for this.
+		link = resume #continue
+		conditions = {
+			~role = missionary, head of state
+		change = {
+			role = missionary
+	
+	option = {
+		text = Look at how well I have done.
+		link = resume #continue
+		conditions = {
+			role = missionary
+		add = {
+			prestige = 20
+
+	option = {
+		text = Nope. No inquisition here.
+		link = resume #continue
+		conditions = {
+			~role = missionary
+		add = {
+			prestige = 1
+	
+
+EVENT = {
+	ID = 2
+	title = Spanish Gold
+	text = The powers that be have demanded an immediate shipment of treasure to be returned to Spain.
+	
+	option = {
+		text = How about no.
+		link = resume #continue
+		subtract = {
+			prestige = 25
+	
+	option = {
+		text = Fine.
+		link = resume #continue
+		subtract = {
+			treasure_amount = 10
+
+EVENT = {
+	ID = 3
+	title = papal influence
+	text = The Pope has cozied up with Spain and has endorsed our quest!
+	
+	option = {
+		text = Glorious!
+		link = resume #continue
+		add = {
+			prestige = 10
+	
+	option = {
+		text = We have been blessed.
+		link = resume #continue
+		conditions = {
+			role = missionary
+		add = {
+			prestige = 20
+
+	option = {
+		text = The earth is round.
+		link = resume #continue
+		conditions = {
+			role = scholar
+		add = {
+			discoveries = round earth
+		subtract = {
+			prestige = 5
+
+EVENT = {
+	ID = 4
+	title = Christopher Columbus
+	text = You meet a lovely lad out in the unknown going by the name of Christopher Columbus. He seems to know what he is doing. He says he is also employed by the Spanish Crown and is searching for a landmass in the west.
+	
+	option = {
+		text = We have common goals. Lets join our expeditions together and share the rewards.
+		link = resume #continue
+		conditions = {
+			role = explorer
+		add = {
+			crew_amount = 30
+			food_amount = 50
+			gold_amount = 20
+			prestige = 25
+		subtract = {
+			treasure_storage = 50
+	
+	option = {
+		text = Take me to Bermuda
+		link = north_america.1 #bermuda
+
+	option = {
+		text = Take me to the Caribbean
+		link = caribbean.1 #Caribbean
+
+	option = {
+		text = Have a chat over some Spanish rice.
+		link = resume #continue
+		conditions = {
+			role = head of state
+		subtract = {
+			food_amount = 5
+		add = {
+			discoveries = north america
+
+	option = {
+		text = He sounds like a nice guy.
+		link = resume #continue
+		add = {
+			prestige = 10
+
+EVENT = {
+	ID = 5
+	title = eye for treasure
+	text = Those Spaniards sure know how to spot valuable treasure in a pile of worthless junk. Even out here they have managed to pick up a few things.
+	
+	option = {
+		text = Excellent.
+		link = resume #continue
+		add = {
+			treasure_amount = 5

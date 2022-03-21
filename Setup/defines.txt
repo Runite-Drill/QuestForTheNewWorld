@@ -1,0 +1,200 @@
+#Allowable ROOT variables:
+#PLAYER = user interaction things & traits. e.g. resources, RPG elements, score. i.e. scriptable variables
+#SYSTEM = hidden processes. e.g. flag
+#SHIPS = different types of ships the player can have in-game
+PLAYER = {
+	###RESOURCES###
+	food_amount = {
+		type = float
+		default = 0
+		limit = 0,999999
+		score_value = 1
+		score_bonus = france
+
+	treasure_storage = {
+		type = float
+		default = 0
+		limit = 0,999999
+
+	treasure_amount = {
+		type = float
+		default = 0
+		limit = 0,inf#%1*treasure_storage%
+		score_value = 8
+		score_bonus = spain
+
+	crew_amount = {
+		type = float
+		default = 0
+		limit = 0,999999
+		score_value = 2
+		score_bonus = england
+
+	gold_amount = {
+		type = float
+		default = 5000
+		limit = 0,999999
+		score_value = 3
+		score_bonus = netherlands
+
+	prestige = {
+		type = float
+		default = 0
+		limit = -100,100
+		score_bonus = china
+
+	###TRACKING###
+	name = {
+		type = string
+		default = <INPUT>
+	title = {
+		type = string
+		default = the Great
+	role = {
+		type = string
+		default = ???
+
+	allegiance = {
+		type = string
+		default = ???
+
+	location = {
+		type = string
+		default = europe
+
+	discoveries = {
+		type = list
+		default = []
+		score_value = 5
+		score_bonus = portugal
+
+	days_passed = {
+		type = float #move to system?
+		default = 0
+		score_bonus = norway
+
+	score = {
+		type = float
+		default = 0
+	
+	active_modifiers = {
+		type = list
+		default = []
+
+	current_ship = {
+		type = string
+		default = no_ship
+
+	total_storage_space = {
+		type = float
+		default = 0
+	
+	remaining_storage_space = {
+		type = float
+		default = 0
+
+	storage_used = {
+		type = float
+		default = 0
+
+	###modifiers### - seperate these into seperate MODIFIER group?
+	sail_speed_modifier = {
+		type = float
+		default = 1 #>1 is good
+
+	storage_space_modifier = {
+		type = float
+		default = 1 #>1 is good; multiplicative with storage space
+
+	food_consumption_modifier = {
+		type = float
+		default = 1 #<1 is good
+
+	death_rate_modifier = {
+		type = float
+		default = 1 #<1 is good
+	
+	prestige_decay_modifier = {
+		type = float
+		default = 1 #<1 is good
+
+	extra_storage_space = {
+		type = float
+		default = 0 #>0 is good. Additive, applied before storage space modifier
+
+	dummy_modifier = {
+		type = float
+		default = 1
+
+SYSTEM = {
+	is_game_test = {
+		type = flag
+		default = false
+	is_game_over = {
+		type = flag
+		default = false
+	event_index_test_file = {
+		type = string
+		default = setup/event_index_test.txt
+	event_index_base_file = {
+		type = string
+		default = setup/event_index.txt
+	ship_types_file = {
+		type = string
+		default = setup/ship_types.txt #oops superceded?
+	EV_days_passed = {
+		type = int
+		default = 0  #days passed on the current event - resets every event
+	EV_food_consumed = { 
+		type = int
+		default = 0  #food consumed on the current event - resets every event
+	EV_crew_deaths = {
+		type = int
+		default = 0  #people died on the current event - resets every event
+	random_event_chance = {
+		type = float
+		default = 1  #base chance of random event occuring per day out of 100.
+	
+		
+
+SHIPS = {
+	no_ship = {
+		min_speed = 1 #speed in km/day
+		max_speed = 1 #speed in km/day
+		storage_space = 0 #maximum amount of stuff the player can carry
+		recommended_crew = 1 #optimal number of crew members	
+	dinghy = {
+		min_speed = 1 #speed in km/day
+		max_speed = 10 #speed in km/day
+		storage_space = 1000 #maximum amount of stuff the player can carry
+		recommended_crew = 20 #optimal number of crew members
+	kayak = {
+		min_speed = 1 #speed in km/day
+		max_speed = 20 #speed in km/day
+		storage_space = 2000 #maximum amount of stuff the player can carry
+		recommended_crew = 5 #optimal number of crew members
+	canoe = {
+		min_speed = 1 #speed in km/day
+		max_speed = 30 #speed in km/day
+		storage_space = 3000 #maximum amount of stuff the player can carry
+		recommended_crew = 10 #optimal number of crew members
+	galley = {
+		min_speed = 20 #speed in km/day
+		max_speed = 130 #speed in km/day
+		storage_space = 7500 #maximum amount of stuff the player can carry
+		recommended_crew = 100 #optimal number of crew members
+	caravel = {
+		min_speed = 20 #speed in km/day
+		max_speed = 140 #speed in km/day
+		storage_space = 5000 #maximum amount of stuff the player can carry
+		recommended_crew = 80 #optimal number of crew members
+	carrack = {
+		min_speed = 10 #speed in km/day
+		max_speed = 160 #speed in km/day
+		storage_space = 20000 #maximum amount of stuff the player can carry
+		recommended_crew = 150 #optimal number of crew members
+	cog = {
+		min_speed = 10 #speed in km/day
+		max_speed = 110 #speed in km/day
+		storage_space = 15000 #maximum amount of stuff the player can carry
+		recommended_crew = 80 #optimal number of crew members

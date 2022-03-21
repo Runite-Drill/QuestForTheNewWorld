@@ -1,0 +1,542 @@
+EVENT INDEX:
+0 = General
+10 = found resources
+20 = 
+
+NAMESPACE = RE_G
+Linked events & event chains are found in: random_events_general_links.txt
+
+###CONDITIONS###
+food_amount = 0
+
+###DEFAULT###
+random_event = yes
+
+###BEGIN###
+EVENT = {
+	ID = 1 #Wrong turn
+	title = Wrong turn
+	text = Oops! It looks like you messed up somewhere and took a wrong turn. You are definitely not heading to where you wanted to be.
+		
+	option = {
+		text = Let us go back and try that again.
+		link = return
+
+EVENT = {
+	ID = 2 #Homely things
+	title = Message from home
+	text = A carrier pigeon arrives. How did it find us? In any case, the people back in $ALLEGIANCE$ are restless to know about the progress of our quest. When are we coming back?
+		
+	option = {
+		text = Send back some treasure.
+		link = resume
+		conditions = {
+			treasure_amount = 5
+		subtract = {
+			treasure_amount = 5
+
+	option = {
+		text = Tell them lies and pay them to shut up.
+		link = resume
+		conditions = {
+			gold_amount = 10
+		subtract = {
+			gold_amount = 10
+			prestige = 10
+
+	option = {
+		text = Ignore them. Filthy peasants.
+		link = resume
+		conditions = {
+			role = head of state
+
+	option = {
+		text = Fine. We will turn back toward Europe… and then change our minds.
+		link = return
+		subtract = {
+			prestige = 5
+
+EVENT = {
+	ID = 3
+	title = religious tensions
+	text = Europe is in turmoil. Religious tensions are at an all-time high. The English are running around talking of new ways of worship. The men in your expedition are from a variety of religious and cultural backgrounds. The conflicts in Europe appear to be spreading amongst your own team here. People are threatening to abandon the expedition!
+	
+	option = {
+		text = We are a symbol of unity.
+		link = resume #continue
+		add = {
+			prestige = 20
+		multiply = {
+			crew_amount = 0.75
+	
+	option = {
+		text = What happens in Europe, stays in Europe.
+		link = resume #continue
+		add = {
+			prestige = 10
+		multiply = {
+			crew_amount = 0.9
+
+	option = {
+		text = Allow them to do what they please.
+		link = resume #continue
+		subtract = {
+			prestige = 10
+
+	option = {
+		text = You will all follow the one true faith!
+		link = resume #continue
+		conditions = {
+			~role = missionary
+		change = {
+			role = missionary
+
+	option = {
+		text = I care not for these petty quarrels.
+		link = resume #continue
+		conditions = {
+			role = scholar
+		subtract = {
+			prestige = 5
+
+	option = {
+		text = This is of no interest to us.
+		link = resume #continue
+		conditions = {
+			allegiance = aztec, china, none
+		add = {
+			prestige = 5
+
+EVENT = {
+	ID = 4
+	title = help abroad
+	text = Word has reached you that your benefactors in $ALLEGIANCE$ are preparing another shipment of supplies. Although you are unsure of how this shipment will reach you, you are given the opportunity to put in a request.
+	
+	option = {
+		text = Send food please.
+		link = resume #continue
+		add = {
+			food_amount = 25
+	
+	option = {
+		text = Send people please.
+		link = resume #continue
+		add = {
+			crew_amount = 25
+
+	option = {
+		text = Send gold please.
+		link = resume #continue
+		add = {
+			gold_amount = 25
+
+	option = {
+		text = Send everything you have.
+		link = resume #continue
+		conditions = {
+			role = head of state
+		add = {
+			food_amount = 20
+			gold_amount = 20
+			crew_amount = 20
+
+EVENT = {
+	ID = 5
+	title = dissidence
+	text = Leading an expedition into the unknown is tough work. You have to deal with navigation, money, survival and the like. You knew this when you signed up, but what you did not consider was the social and leadership skills required to keep a happy and loyal crew. Unfortunately, this is becoming more apparent recently, as some members of your crew are refusing to continue working until you pay them more money!
+	
+	option = {
+		text = Bother.
+		link = resume #continue
+		multiply = {
+			gold_amount = 0.9
+	
+	option = {
+		text = Let them go.
+		link = resume #continue
+		multiply = {
+			crew_amount = 0.9
+
+EVENT = {
+	ID = 6
+	title = pandoras box
+	text = Have you ever heard of pandoras box? It is said to be a magical and mystical box, bearing great evil within.
+	
+	option = {
+		text = Open it up and find out.
+		link = RE_G_links.[1,2,3,4,5,6,7] #random event in a box
+
+EVENT = {
+	ID = 7
+	title = cornucopia
+	text = Have you ever heard of the cornucopia? It is said to be a magical golden horn belonging to the Greek god Zeus. It is said that inside it holds great fortune and pleasantries.
+	
+	option = {
+		text = Have a look inside and find out.
+		link = RE_G_links.[10,11,12,13,14,15,16,17,18] #random event in a cornucopia
+
+EVENT = {
+	ID = 8
+	title = disease
+	text = Some of your crew members have fallen ill with a nasty disease!
+	
+	option = {
+		text = Sacrifice them for the good of the crew.
+		link = resume #continue
+		conditions = {
+			crew_amount = 5
+		subtract = {
+			crew_amount = 5
+
+	option = {
+		text = Nurse them back to health.
+		link = resume #continue
+		multiply = {
+			food_amount = 0.9
+
+EVENT = {
+	ID = 9
+	title = marriage
+	text = Two members of your crew are getting married! What a fantastic story to tell the folks at home. What gift should we give them?
+	modify = {
+		add = {
+			prestige = 10
+	
+	option = {
+		text = Cook up the best feast we have ever seen.
+		link = resume #continue
+		conditions = {
+			food_amount = 20
+		subtract = {
+			food_amount = 20
+
+	option = {
+		text = A modest gift of gold.
+		link = resume #continue
+		conditions = {
+			gold_amount = 10
+		subtract = {
+			gold_amount = 10
+
+	option = {
+		text = A trinket from our treasure pile.
+		link = resume #continue
+		conditions = {
+			treasure_amount = 5
+		subtract = {
+			treasure_amount = 5
+
+	option = {
+		text = The gift of God is all they need.
+		link = resume #continue
+		conditions = {
+			role = missionary
+
+	option = {
+		text = They do not need anything.
+		link = resume #continue
+		subtract = {
+			prestige = 20
+
+EVENT = {
+	ID = 10
+	title = food found
+	text = You have found some food.
+	
+	option = {
+		text = Excellent.
+		link = resume #continue
+		conditions = {
+			~role = colonist
+		add = {
+			food_amount = 10
+
+	option = {
+		text = Excellent.
+		link = resume #continue
+		conditions = {
+			role = colonist
+		add = {
+			food_amount = 15
+
+EVENT = {
+	ID = 11
+	title = abundant food found
+	text = You have found a healthy supply of food.
+	
+	option = {
+		text = Marvellous.
+		link = resume #continue
+		conditions = {
+			~role = colonist
+		add = {
+			food_amount = 20
+
+	option = {
+		text = Marvellous.
+		link = resume #continue
+		conditions = {
+			role = colonist
+		add = {
+			food_amount = 30
+
+EVENT = {
+	ID = 12
+	title = crew found
+	text = You have found some more crew members.
+	
+	option = {
+		text = Excellent.
+		link = resume #continue
+		conditions = {
+			~role = admiral
+		add = {
+			crew_amount = 10
+
+	option = {
+		text = Excellent.
+		link = resume #continue
+		conditions = {
+			role = admiral
+		add = {
+			crew_amount = 15
+
+EVENT = {
+	ID = 13
+	title = abundant crew found
+	text = You have found a healthy supply of fresh recruits.
+	
+	option = {
+		text = Marvellous.
+		link = resume #continue
+		conditions = {
+			~role = admiral
+		add = {
+			crew_amount = 20
+
+	option = {
+		text = Marvellous.
+		link = resume #continue
+		conditions = {
+			role = admiral
+		add = {
+			crew_amount = 30
+
+EVENT = {
+	ID = 14
+	title = gold found
+	text = You have found some gold.
+	
+	option = {
+		text = Excellent.
+		link = resume #continue
+		conditions = {
+			~role = peasant
+		add = {
+			gold_amount = 10
+
+	option = {
+		text = Excellent.
+		link = resume #continue
+		conditions = {
+			role = peasant
+		add = {
+			gold_amount = 15
+
+EVENT = {
+	ID = 15
+	title = abundant gold found
+	text = You have found a healthy supply of money.
+	
+	option = {
+		text = Marvellous.
+		link = resume #continue
+		conditions = {
+			~role = peasant
+		add = {
+			gold_amount = 20
+
+	option = {
+		text = Marvellous.
+		link = resume #continue
+		conditions = {
+			role = peasant
+		add = {
+			gold_amount = 30
+
+EVENT = {
+	ID = 16
+	title = treasure found
+	text = You have found some treasure.
+	
+	option = {
+		text = Excellent.
+		link = resume #continue
+		conditions = {
+			~role = explorer
+		add = {
+			treasure_amount = 5
+
+	option = {
+		text = Excellent.
+		link = resume #continue
+		conditions = {
+			role = explorer
+		add = {
+			treasure_amount = 10
+
+EVENT = {
+	ID = 17
+	title = abundant treasure found
+	text = You have found a healthy deposit of treasure.
+	
+	option = {
+		text = Marvellous.
+		link = resume #continue
+		conditions = {
+			~role = explorer
+		add = {
+			treasure_amount = 10
+
+	option = {
+		text = Marvellous.
+		link = resume #continue
+		conditions = {
+			role = explorer
+		add = {
+			treasure_amount = 15
+
+EVENT = {
+	ID = 18
+	title = relics found
+	text = You have found some relics of a long lost age.
+	
+	option = {
+		text = Excellent.
+		link = resume #continue
+		conditions = {
+			~role = scholar
+		add = {
+			prestige = 10
+
+	option = {
+		text = Excellent.
+		link = resume #continue
+		conditions = {
+			role = scholar
+		add = {
+			prestige = 15
+
+EVENT = {
+	ID = 19
+	title = abundant relics found
+	text = You have found a a whole library of long lost relics.
+	
+	option = {
+		text = Marvellous.
+		link = resume #continue
+		conditions = {
+			~role = scholar
+		add = {
+			prestige = 20
+
+	option = {
+		text = Marvellous.
+		link = resume #continue
+		conditions = {
+			role = scholar
+		add = {
+			prestige = 30
+
+EVENT = {
+	ID = 20
+	title = Back to the azores
+	text = We are familiar enough with our surroundings to find our way back to the Azores.
+	
+	option = {
+		text = Lets go!
+		link = atlantic_central.5 #azores
+
+	option = {
+		text = We do not need to go there.
+		link = resume #continue
+
+EVENT = {
+	ID = 21
+	title = abandonment
+	text = Some of your crew has abandoned the expedition!
+	
+	option = {
+		text = Good luck to them.
+		link = resume
+		multiply = {
+			crew_amount = 0.9
+
+	option = {
+		text = No they have not.
+		link = resume #continue
+		conditions = {
+			role = admiral
+
+EVENT = {
+	ID = 22
+	title = rotting food
+	text = Some of your food has gone rotten!
+	
+	option = {
+		text = Gross!
+		link = resume
+		multiply = {
+			food_amount = 0.9
+
+	option = {
+		text = Its fine.
+		link = resume #continue
+		conditions = {
+			role = peasant
+
+
+EVENT = {
+	ID = 100 #king
+	title = promotion opportunity
+	text = Word has come from afar that the great leader of $ALLEGIANCE$, your benefactors, has passed. The people there are so enthralled by your quest that they wish install you as their new head of state!
+		
+	option = {
+		text = Oh yeah! Rise up my peasants and worship me!
+		link = resume
+		conditions = {
+			~role = head of state
+		change = {
+			role = head of state
+
+	option = {
+		text = No thanks. Can you not see that I am too busy here?
+		link = resume
+		conditions = {
+			~role = head of state
+
+	option = {
+		text = Lies I tell you. Lies!
+		link = resume
+		conditions = {
+			role = head of state
+		add = {
+			prestige = 5
+
+EVENT = {
+	ID = 101 #bankrupt investors
+	title = bankruptcy
+	text = Your backers in $ALLEGIANCE$ have gone bankrupt!
+		
+	option = {
+		text = Give them everything we have.
+		link = resume
+		multiply = {
+			gold_amount = 0
+			treasure_amount = 0
+
+	option = {
+		text = Abandon them.
+		link = resume
+		change = {
+			allegiance = none

@@ -1,0 +1,99 @@
+EVENT INDEX:
+0 = all portuguese events
+
+NAMESPACE = RE_POR
+
+###CONDITIONS###
+allegiance = portugal
+
+###DEFAULT###
+random_event = yes
+
+###BEGIN###
+EVENT = {
+	ID = 1
+	title = Barbary pirates
+	text = Even out here you cannot get away from those filthy pirates!
+	
+	option = {
+		text = This means war!
+		link = resume #continue
+		conditions = {
+			role = head of state
+		add = {
+			prestige = 30
+	
+	option = {
+		text = Sink them.
+		link = resume #continue
+		conditions = {
+			~role = admiral
+		add = {
+			gold_amount = 10
+		subtract = {
+			crew_amount = 5
+			treasure_amount = 5
+
+	option = {
+		text = Sink them.
+		link = resume #continue
+		conditions = {
+			role = admiral
+		add = {
+			gold_amount = 10
+	
+
+EVENT = {
+	ID = 2
+	title = Portuguese instincts
+	text = With your crew being overwhelmingly Iberian-aligned, it is difficult to get things done without seeing it their way. Maybe we should consider some other form of training?
+	
+	option = {
+		text = I should have been an explorer.
+		link = resume #continue
+		conditions = {
+			~role = explorer, head of state
+		change = {
+			role = explorer
+	
+	option = {
+		text = I should have been a Merchant.
+		link = resume #continue
+		conditions = {
+			~role = merchant, head of state
+		change = {
+			role = merchant
+
+	option = {
+		text = I am fine just being me.
+		link = resume #continue
+		conditions = {
+			role = peasant
+
+	option = {
+		text = They will just have to deal with it.
+		link = resume #continue
+		subtract = {
+			prestige = 5
+
+
+EVENT = {
+	ID = 3
+	title = navigational spirit
+	text = With the Portuguese by our side, exploration is natural. We can do anything!
+	
+	option = {
+		text = We can find food.
+		link = resume #continue
+		add = {
+			food_amount = 10
+	
+	option = {
+		text = We can find treasure.
+		link = resume #continue
+		add = {
+			treasure_amount = 3
+
+	option = {
+		text = We can find Africa.
+		link = africa.0 #africa

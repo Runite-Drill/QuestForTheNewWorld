@@ -1,0 +1,155 @@
+EVENT INDEX:
+0 = bad events
+10 = good events
+20 = event chain
+
+NAMESPACE = RE_role_merchant
+
+###CONDITIONS###
+role = merchant
+
+###DEFAULT###
+random_event = yes
+
+###BEGIN###
+EVENT = {
+	ID = 1
+	title = Purchase supplies
+	text = You come across another expedition. The meeting is friendly and you exchange many stories of your journeys. Eventually, you get to business and you are presented the opportunity to purchase some supplies.
+		
+	option = {
+		text = Buy food.
+		link = resume #go back
+		conditions = {
+			gold_amount = 10
+		add = {
+			food_amount = 20
+		subtract = {
+			gold_amount = 10
+
+	option = {
+		text = Hire men.
+		link = resume #go back
+		conditions = {
+			gold_amount = 10
+		add = {
+			crew_amount = 10
+		subtract = {
+			gold_amount = 10
+
+	option = {
+		text = Buy treasure.
+		link = resume #go back
+		conditions = {
+			gold_amount = 10
+		add = {
+			treasure_amount = 5
+		subtract = {
+			gold_amount = 10
+
+	option = {
+		text = Thanks, but we have everything we need.
+		link = resume
+
+EVENT = {
+	ID = 2
+	title = A curious offer
+	text = We have been presented with a once in a lifetime opportunity to buy our way to greatness!
+
+	option = {
+		text = Only a little bit.
+		link = resume #go back
+		conditions = {
+			gold_amount = 10
+		add = {
+			prestige = 10
+		subtract = {
+			gold_amount = 10
+	
+	option = {
+		text = But wait, there is more!
+		link = resume #go back
+		conditions = {
+			gold_amount = 20
+		add = {
+			prestige = 25
+		subtract = {
+			gold_amount = 20
+
+	option = {
+		text = We will make $ALLEGIANCE$ great again!
+		link = resume #go back
+		conditions = {
+			gold_amount = 40
+		add = {
+			prestige = 60
+		subtract = {
+			gold_amount = 40
+
+	option = {
+		text = Really?
+		link = resume #continue
+
+EVENT = {
+	ID = 3
+	title = Investment opportunity
+	text = We have been presented with a once in a lifetime opportunity to take a controlling stake in another expedition.
+
+	option = {
+		text = All in.
+		link = RE_role_links.[1,2] #investment success/failure
+		multiply = {
+			gold_amount = 0.5
+	
+	option = {
+		text = Fold.
+		link = resume #continue
+
+EVENT = {
+	ID = 4
+	title = sold items
+	text = We have managed to sell some odd and unwanted items to a passing expedition.
+	modify = {
+		add = {
+			gold_amount = 10
+	option = {
+		text = Awesome.
+		link = resume #continue
+
+EVENT = {
+	ID = 5
+	title = food purchase
+	text = We can buy some food from a passing expedition.
+
+	option = {
+		text = Go for it.
+		link = resume #continue
+		conditions = {
+			gold_amount = 10
+		add = {
+			food_amount = 10
+		subtract = {
+			gold_amount = 10
+
+	option = {
+		text = We cannot afford that.
+		link = resume #continue
+
+EVENT = {
+	ID = 6
+	title = treasure purchase
+	text = We can buy some treasure from a passing expedition.
+
+	option = {
+		text = Go for it.
+		link = resume #continue
+		conditions = {
+			gold_amount = 10
+		add = {
+			treasure_amount = 5
+		subtract = {
+			gold_amount = 10
+
+	option = {
+		text = We cannot afford that.
+		link = resume #continue

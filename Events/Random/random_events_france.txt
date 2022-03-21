@@ -1,0 +1,139 @@
+EVENT INDEX:
+0 = all french events
+
+NAMESPACE = RE_FRE
+
+###CONDITIONS###
+allegiance = france
+
+###DEFAULT###
+random_event = yes
+
+###BEGIN###
+EVENT = {
+	ID = 1
+	title = Elan!
+	text = Our Elan is so strong. People see it and are inspired beyond belief! They flock to our quest!
+	
+	option = {
+		text = And so they should!
+		link = resume #continue
+		add = {
+			crew_amount = 20
+	
+	option = {
+		text = Bask in our glory!
+		link = resume #continue
+		add = {
+			prestige = 20
+
+EVENT = {
+	ID = 2
+	title = baking disaster
+	text = Oh no! The baker has made a terrible mistake. Not enough flour and he has baked us a recipe for disaster!
+	
+	option = {
+		text = This will spoil everything!
+		link = resume #continue
+		subtract = {
+			food_amount = 20
+	
+	option = {
+		text = Toughen up
+		link = resume #continue
+		subtract = {
+			prestige = 10
+
+	option = {
+		text = To the guillotine!
+		link = resume #continue
+		subtract = {
+			prestige = 5
+			crew_amount = 5
+
+EVENT = {
+	ID = 3
+	title = english scum
+	text = We are about to travel past an English expedition. By the French instincts within us, we must throw something at them!
+	
+	option = {
+		text = Throw food!
+		link = resume #continue
+		conditions = {
+			food_amount = 5
+		subtract = {
+			food_amount = 5
+	
+	option = {
+		text = Throw insults!
+		link = resume #continue
+		subtract = {
+			prestige = 5
+
+	option = {
+		text = Throw money!
+		link = resume #continue
+		conditions = {
+			gold_amount = 5
+		subtract = {
+			gold_amount = 5
+
+	option = {
+		text = Throw people!
+		link = resume #continue
+		conditions = {
+			crew_amount = 5
+		subtract = {
+			crew_amount = 5
+
+	option = {
+		text = Throw treasure!
+		link = resume #continue
+		conditions = {
+			treasure_amount = 5
+		subtract = {
+			treasure_amount = 5
+
+	option = {
+		text = We have nothing decent to hurl at them. Retreat!
+		link = return #continue
+		conditions = {
+			~food_amount = 5
+			~crew_amount = 5
+			~gold_amount = 5
+			~treasure_amount = 5
+
+	option = {
+		text = Goodness. I thought we were better than this.
+		link = resume #continue
+		conditions = {
+			role = scholar
+		add = {
+			prestige = 5
+
+EVENT = {
+	ID = 4
+	title = boulangerie
+	text = Wow! The baker has cooked us a treat! It smell marvellous. It looks wonderful. I might just put it with my wedding cake. It is just so exquisite!
+	
+	option = {
+		text = This is a national treasure.
+		link = resume #continue
+		add = {
+			treasure_amount = 5
+	
+	option = {
+		text = We feast tonight!
+		link = resume #continue
+		add = {
+			food = 25
+
+	option = {
+		text = We can sell this to a passing expedition.
+		link = resume #continue
+		conditions = {
+			role = merchant
+		add = {
+			gold_amount = 20
+	
+

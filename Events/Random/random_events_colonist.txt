@@ -1,0 +1,115 @@
+EVENT INDEX:
+0 = bad events
+10 = good events
+20 = event chain
+
+NAMESPACE = RE_role_colonist
+
+###CONDITIONS###
+role = colonist
+
+###DEFAULT###
+random_event = yes
+
+###BEGIN###
+EVENT = {
+	ID = 1
+	title = the wasteland
+	text = Our surroundings just do not seem to be any good for building future colonies.
+
+	option = {
+		text = $ALLEGIANCE$ will be disappointed.
+		link = resume #continue
+		subtract = {
+			prestige = 10
+
+EVENT = {
+	ID = 2
+	title = colonial misjudgement
+	text = We have just realised we sent a message back to $ALLEGIANCE$ with incorrect details of where they should set up a colony. We were hasty and had not appropriately scouted out the surroundings.
+
+	option = {
+		text = Send a follow-up and correct our mistake.
+		link = resume #continue
+		subtract = {
+			prestige = 20
+
+	option = {
+		text = Leave some food for when they arrive.
+		link = resume #continue
+		multiply = {
+			food_amount = 0.8
+
+	option = {
+		text = Send some goodies to soften the blow.
+		link = resume #continue
+		conditions = {
+			treasure_amount = 10
+		subtract = {
+			prestige = 5
+			treasure_amount = 10
+
+
+EVENT = {
+	ID = 10
+	title = Colonial Defence
+	text = We need to plan how we will defend our future colonies in any new and unexplored land that we discover.
+
+	option = {
+		text = We will build an army worthy of $ALLEGIANCE$.
+		link = resume #continue
+		add = {
+			crew_amount = 10
+
+	option = {
+		text = We will build a wall along the entire border.
+		link = resume #continue
+		add = {
+			prestige = 10
+
+EVENT = {
+	ID = 11
+	title = Colonial expansion
+	text = We have the opportunity to grow and expand our colonies at a much greater rate if we encourage diverse cultures and immigration.
+
+	option = {
+		text = We will have open borders to all.
+		link = resume #continue
+		add = {
+			crew_amount = 20
+
+	option = {
+		text = We will decide on a case-by-case basis.
+		link = resume #continue
+		add = {
+			crew_amount = 10
+			prestige = 10
+
+	option = {
+		text = We will have closed borders to all.
+		link = resume #continue
+		add = {
+			prestige = 20
+
+EVENT = {
+	ID = 12
+	title = The native question
+	text = What should we do about any native tribes we encounter?
+
+	option = {
+		text = Draft them.
+		link = resume #continue
+		add = {
+			crew_amount = 10
+
+	option = {
+		text = Co-exist with them.
+		link = resume #continue
+		add = {
+			food_amount = 10
+
+	option = {
+		text = Kill them.
+		link = resume #continue
+		add = {
+			gold_amount = 10

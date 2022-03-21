@@ -1,0 +1,154 @@
+EVENT INDEX:
+0 = bad events
+10 = good events
+20 = event chain
+
+NAMESPACE = RE_role_admiral
+
+###CONDITIONS###
+role = admiral
+
+###DEFAULT###
+random_event = yes
+
+###BEGIN###
+EVENT = {
+	ID = 1
+	title = Scallywags
+	text = Your crew have been performing poorly recently. People have been slipping on their feet, on their tongue and on the ropes. It is time to restore discipline to your people.
+
+	option = {
+		text = Lets shake things up.
+		link = resume #continue
+		multiply = {
+			crew_amount = 0.9
+
+	option = {
+		text = They will grow out of it.
+		link = resume #continue
+		subtract = {
+			prestige = 10
+
+EVENT = {
+	ID = 2
+	title = leadership questioned
+	text = Your crew are growing uncertain of your leadership.
+
+	option = {
+		text = They need to trust me
+		link = resume #continue
+		subtract = {
+			prestige = 10
+
+	option = {
+		text = A bit more money will convince them.
+		link = resume #continue
+		multiply = {
+			gold_amount = 0.9
+
+EVENT = {
+	ID = 3
+	title = celebratory dinner
+	text = Your crew want to hold a large, delicious dinner. They are pleased to be alive and under your leadership. Whilst it would keep up their morale, food is a precious resource.
+
+	option = {
+		text = Hold the feast.
+		link = resume #continue
+		multiply = {
+			food_amount = 0.9
+
+	option = {
+		text = Do not hold the feast.
+		link = resume #continue
+		subtract = {
+			prestige = 10
+
+EVENT = {
+	ID = 4
+	title = Strike
+	text = Your crew have gone on strike!
+
+	option = {
+		text = This will slow us down.
+		link = resume #continue
+		multiply = {
+			sail_speed_modifier = 0.9
+			duration = 100
+
+
+EVENT = {
+	ID = 10
+	title = Ship Upgrades
+	text = Your exquisite knowledge of the seas has presented us with the opportunity to upgrade our ship into a bigger, badder, more floaty ship!
+
+	option = {
+		text = More space for more treasure to bring home!
+		link = resume #continue
+		conditions = {
+			gold_amount = 50
+		add = {
+			extra_storage_space = 200
+		subtract = {
+			gold_amount = 50
+
+	option = {
+		text = A gorgeous golden figurehead to make us look really good!
+		link = resume #continue
+		conditions = {
+			gold_amount = 50
+		add = {
+			prestige = 20
+		subtract = {
+			gold_amount = 50
+
+	options = {
+		text = We cannot afford this!
+		link = resume #continue
+
+
+EVENT = {
+	ID = 11
+	title = Songs of the sea
+	text = There is nothing more invigorating than singing the many great songs of the sea.
+
+	option = {
+		text = Glory to us.
+		link = resume #continue
+		add = {
+			prestige = 10
+
+EVENT = {
+	ID = 12
+	title = Disciplined crew
+	text = Your undeniably successful leadership has made your crew far more organised, experienced and disciplined.
+
+	option = {
+		text = This should save us some food.
+		link = resume #continue
+		multiply = {
+			food_amount = 1.1
+
+	option = {
+		text = This should save us some money.
+		link = resume #continue
+		multiply = {
+			gold_amount = 1.1
+
+	option = {
+		text = Well that makes us look good.
+		link = resume #continue
+		add = {
+			prestige = 20
+
+EVENT = {
+	ID = 13
+	title = Sailors life
+	text = You can feel it in the air. The breeze in your hair. The winds of the ocean fill your soul. You sing a song as your expedition pushes on ever further!
+
+	option = {
+		text = Look at how fast I can go!
+		link = resume #continue
+		multiply = {
+			sail_speed_modifier = 1.2
+			duration = 100 #days
+

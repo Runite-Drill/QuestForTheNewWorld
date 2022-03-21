@@ -1,0 +1,373 @@
+EVENT INDEX:
+00 = Ocean - generic events
+10 = Ocean - resource/weather events
+20 = Ocean - player role events
+30 = Ocean - event chain entry points
+
+NAMESPACE = RE_O
+#Event chain links can be found in random_events_ocean_links.txt
+
+###CONDITIONS###
+location = north atlantic, central atlantic, south atlantic, caribbean sea, arctic
+
+###DEFAULT###
+random_event = yes
+
+###BEGIN###
+EVENT = {
+	ID = 1
+	title = lost at sea
+	text = The sky is clouded, preventing navigation by the stars. Your maps are not much use when all of the ocean looks the same. You are lost, admit it.
+	
+	option = {
+		text = Throw some people overboard as an offering to the gods!
+		link = resume #continue
+		conditions = {
+			~allegiance = aztec
+			crew_amount = 5
+		subtract = {
+			crew_amount = 5
+
+	option = {
+		text = Throw some people overboard as an offering to the Aztec gods!
+		link = resume #continue
+		conditions = {
+			allegiance = aztec
+			crew_amount = 5
+		subtract = {
+			crew_amount = 5
+		add = {
+			score = 5
+	
+	option = {
+		text = We can only follow the stars and hope for the best.
+		link = resume, return
+		conditions = {
+			~role = scholar
+
+	option = {
+		text = We can only follow the stars and hope for the best.
+		link = resume
+		conditions = {
+			role = scholar		
+		
+	option = {
+		text = Turn back the way we came.
+		link = return #go back
+
+EVENT = {
+	ID = 2
+	title = blown off course
+	text = A firm wind has had your sails filled for a while. Progress has been fantastic. But now it would seem that the stars are no longer aligned. Have you been here before? The wind has thrown you far off your course!
+	
+	option = {
+		text = Let us just take a moment to get our bearings and then carry on.
+		link = resume #continue
+		multiply = {
+			food_amount = 0.9
+	
+	option = {
+		text = No problem. Let us see where we end up.
+		link = atlantic_north.[0,10,20,30,40] #oooh who knows where it goes
+
+EVENT = {
+	ID = 3
+	title = getting directions
+	text = As chance would have it, out here in the vast unknown, you discover another ship of sailors. After exchanging pleasantries you get down to business. They are a group of explorers, returning to Europe restock and share news of their discoveries. They are intrigued that you are a $ROLE$ and provide you with some directions, should you choose to follow.
+	
+	option = {
+		text = Head to the North Atlantic
+		link = atlantic_north.0 #north atlantic
+		change = {
+			location = north atlantic
+	
+	option = {
+		text = Head to the Central Atlantic
+		link = atlantic_central.0 #central atlantic
+		change = {
+			location = central atlantic
+
+	option = {
+		text = Head to the South Atlantic
+		link = atlantic_south.0 #south atlantic
+		change = {
+			location = south atlantic
+
+	option = {
+		text = Head to the African coastline
+		link = africa.0 #african coastline
+		change = {
+			location = african coast
+
+	option = {
+		text = Ignore them. We have our own plans.
+		link = resume #carry on!
+
+	option = {
+		text = Go with them back to Europe
+		link = europe.0 #Europe return
+		change = {
+			location = europe
+
+	option = {
+		text = From one explorer to another, I gift you the route to the Caribbean.
+		link = caribbean.0 #Caribbean
+		conditions = {
+			role = explorer
+		change = {
+			location = caribbean
+EVENT = {
+	ID = 4
+	title = rest break
+	text = It would seem you have been pressing your crew too hard. They beg and plea with you, the quality of their work is declining rapidly. They are exhausted and need some rest.
+	
+	option = {
+		text = We can take a short break and recover.
+		link = resume #continue
+		multiply = {
+			food_amount = 0.9
+	
+	option = {
+		text = Press on ahead, even if it kills them.
+		link = resume #continue
+		multiply = {
+			crew_amount = 0.9
+
+EVENT = {
+	ID = 5
+	title = privateers!
+	text = The moment you saw the black flag you knew there would be trouble. Unfortunately, your ship was not built for speed like theirs was. Quickly, they catch up and demand their tribute to let you on their way.
+	
+	option = {
+		text = Give them our food.
+		link = resume #continue
+		conditions = {
+			food_amount = 20
+		subtract = {
+			food_amount = 20
+	
+	option = {
+		text = Give them our crew.
+		link = resume #continue
+		conditions = {
+			crew_amount = 20
+		subtract = {
+			crew_amount = 20
+
+	option = {
+		text = Give them our gold.
+		link = resume #continue
+		conditions = {
+			gold_amount = 20
+		subtract = {
+			gold_amount = 20
+
+	option = {
+		text = Give them our treasure.
+		link = resume #continue
+		conditions = {
+			treasure_amount = 20
+		subtract = {
+			treasure_amount = 20
+
+	option = {
+		text = We have nothing worthwhile to give.
+		link = return #continue
+		conditions = {
+			~food_amount = 20
+			~crew_amount = 20
+			~gold_amount = 20
+			~treasure_amount = 20
+		subtract = {
+			prestige = 50
+
+EVENT = {
+	ID = 6
+	title = ship repairs
+	text = With non-stop sailing your ship is showing some wear. Time to patch it up.
+	
+	option = {
+		text = Buy supplies from a passing ship.
+		link = resume #continue
+		subtract = {
+			gold_amount = 100
+	option = {
+		text = Let it be.
+		link = resume #continue
+		multiply = {
+			storage_space = 0.9
+
+EVENT = {
+	ID = 7 #Spin the bottle
+	title = spin the bottle
+	text = It has been a while since you last knew where you were. You crew are beginning to have suspicions. You need to deciding a heading, fast!
+		
+	option = {
+		text = We have a rum bottle for this. Spin, spin spin! Follow where she goes!
+		link = resume,return #add more when ready
+
+EVENT = {
+	ID = 8 #natural stuff
+	title = outstanding water feature
+	text = Right there in the middle of the ocean you discover a thing of beauty. Just the way the waster glistens under the sun, the waves gently roll beneath your ship and the surrounds blend gracefully with the sea.
+		
+	option = {
+		text = Outstanding.
+		link = resume
+		add = {
+			discoveries = outstanding water feature
+			prestige = 5
+
+EVENT = {
+	ID = 9
+	title = scurvy
+	text = The crew are falling ill rapidly with some strange disease!
+
+	option = {
+		text = Moor them on an island to stop it from spreading.
+		link = resume
+		conditions = {
+			crew_amount = 10
+		subtract = {
+			crew_amount = 10
+
+	option = {
+		text = Feast on oranges to ward it off.
+		link = resume
+		multiply = {
+			food_amount = 0.8
+
+EVENT = {
+	ID = 10
+	title = shipwrecked
+	text = It was out of our control! We have managed to become shipwrecked on a small nearby island. Luckily, we were have the ability to request a new ship all the way from Europe.
+
+	option = {
+		text = What an embarrassment.
+		link = resume
+		subtract = {
+			prestige = 100
+
+	option = {
+		text = Purchase a passing ship.
+		link = resume
+		conditions = {
+			gold_amount = 50
+			~role = merchant
+		subtract = {
+			gold_amount = 50
+			prestige = 20
+
+	option = {
+		text = Purchase a passing ship.
+		link = resume
+		conditions = {
+			gold_amount = 30
+			role = merchant
+		subtract = {
+			gold_amount = 30
+			prestige = 20
+
+	option = {
+		text = Commandeer a passing ship.
+		link = resume
+		conditions = {
+			role = admiral
+		multiply = {
+			crew_amount = 0.8
+			treasure_storage = 0.9
+		subtract = {
+			prestige = 10
+
+EVENT = {
+	ID = 11
+	title = Mutiny!
+	text = Some of your crew have attempted to take control of the ship.
+
+	option = {
+		text = Walk the plank!
+		link = resume
+		conditions = {
+			crew_amount = 5
+		subtract = {
+			crew_amount = 5
+
+	option = {
+		text = It is a joke, right?
+		link = resume
+		conditions = {
+			~crew_amount = 5
+		subtract = {
+			prestige = 5
+
+	option = {
+		text = Let them think they have won.
+		link = resume
+		subtract = {
+			prestige = 10
+
+	option = {
+		text = I will be having none of this, thanks.
+		link = resume
+		conditions = {
+			role = admiral
+
+EVENT = {
+	ID = 12
+	title = scrub the deck
+	text = The ship is looking a bit worn down.
+
+	option = {
+		text = get to work lads!
+		link = resume
+		subtract = {
+			prestige = 5
+
+
+EVENT = {
+	ID = 30 #start of whale pod event chain
+	title = pod of whales
+	text = Alone in the blue beyond you come across a pod of whales. Delightful!
+	
+	option = {
+		text = Kill them and move on. They are valuable food.
+		link = RE_O_link.[1,3], resume #continue
+		add = {
+			food_amount = 20
+
+	option = {
+		text = Follow them and see where they take us!
+		link = RE_O_link.[0,1] #linked event
+
+	option = {
+		text = They are a thing of nature, let them be.
+		link = resume #linked event
+
+EVENT = {
+	ID = 31 #Ghost ship event chain. event entrance to chain
+	title = mist and fog
+	text = In the distance there is a fog. As your ship becomes consumed by the mist, you notice a faint outline bobbing in the waves. As you draw near you notice tattered sails, broken masts, a shattered hull. Yet still this ship floats on.
+		
+	option = {
+		text = Investigate further! Climb aboard and salvage anything we can find.
+		link = RE_O_link.10 #Ghost ship event 2
+		
+	option = {
+		text = Stay clear and continue on course.
+		link = resume #continue on as planned
+
+
+EVENT = {
+	ID = 32 #message in a bottle event chain
+	title = Message in a bottle
+	text = A message in a bottle. Help me! Followed by a crudely drawn map.
+		
+	option = {
+		text = We will save you.
+		link = RE_O_link.20 #message in a bottle
+
+	option = {
+		text = This problem belongs to someone else.
+		link = resume
+		subtract = {
+			prestige = 5	

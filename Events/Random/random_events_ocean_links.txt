@@ -1,0 +1,185 @@
+EVENT INDEX:
+00 = Whale event chain
+10 = Ghost ship event chain
+
+NAMESPACE = RE_O_links
+#These events can only be accessed by an entry event in random_events_ocean.txt
+
+###DEFAULT###
+random_event = yes
+linked_only = yes
+
+###BEGIN###
+EVENT = {
+	ID = 0 #whales event chain. event 1
+	title = whale of time
+	text = You follow the whales through the ocean for a bit. They take you through well populated waters. Food aplenty!
+	modify = {
+		add = {
+			food_amount = 20
+		
+	option = {
+		text = Leave them. I do not know where we are, but food is all we need.
+		link = atlantic.[0,20,40] #randomly in the atlantic
+
+	option = {
+		text = Best we turn back. Being lost is not good.
+		link = return #turn back
+
+	option = {
+		text = Keep following them. They may find something more.
+		link = 1,2 #maybe whale friend event
+
+EVENT = {
+	ID = 1 #whales event chain. event 2
+	title = whale, whale, whale
+	text = The whales do not seem to appreciate your presence. The are becoming increasingly agitated and hostile. They seem to be trying to tip your ship and are leading you in circles.
+		
+	option = {
+		text = Kill them all.
+		link = 3 #whale hostile event
+
+	option = {
+		text = Leave them alone.
+		link = atlantic.[0,20,40] #randomly in the atlantic
+
+	option = {
+		text = Entice them with food.
+		link = 3,4 #whale guide event
+		subtract = {
+			food_amount = 10
+
+EVENT = {
+	ID = 2 #whales event chain. event 3 - friendly
+	title = whale done
+	text = The whales do not seem to mind your presence. They guide you to an abandoned, yet still floating ship. Awesome, treasure! Thanks whales!
+	modify = {
+		add = {
+			gold_amount = 10
+			treasure_amount = 5
+		
+	option = {
+		text = Ask to be directed back to where you came from.
+		link = return #go back
+
+	option = {
+		text = Carry on from here without them.
+		link = atlantic_north.0, atlantic_south.0, atlantic_central.0 #randomly in the atlantic
+
+EVENT = {
+	ID = 3 #whales event chain. event 4 - hostile
+	title = whale done
+	text = Well that did not go so well. The whales are actively launching themselves out of the water and trying to crush your ship. You have already lost some men. Fortunately, a small fleet passes by and saves you from your plight. They help to repair your ship, but they seem to be expecting some kind of reward before leading you back to your original destination.
+
+	modify = {
+		multiply = {
+			crew_amount = 0.9
+		
+	option = {
+		text = Drown them in food.
+		link = resume #continue on
+		subtract = {
+			food_amount = 10
+
+	option = {
+		text = Offer up the oddballs in your crew.
+		link = resume #continue on
+		subtract = {
+			crew_amount = 10
+
+	option = {
+		text = Pay them off in gold.
+		link = resume #continue on
+		subtract = {
+			gold_amount = 10
+
+EVENT = {
+	ID = 4 #whales event chain. event 5 - guide
+	title = youre whalecome!
+	text = The whales seem pacified, and even pleased. They even regurgitate some long lost treasure and seem to want to help you with directions. Your crew sing in joy.
+		
+	modify = {
+		add = {
+			treasure_amount = 10
+	option = {
+		text = Take me to the April sun in Cuba.
+		link = caribbean.0 #caribbean!
+
+	option = {
+		text = Feel the rhythm of the Atlantic Ocean.
+		link = atlantic_north.0, atlantic_central.0, atlantic_south.0 #randomly in the atlantic
+
+	option = {
+		text = I bless the rains down in Africa.
+		link = africa.[0,5,10] #randomly in the african coast
+
+	option = {
+		text = I forget where we were.
+		link = resume #back to where you originally wanted to go
+
+	option = {
+		text = Oh lets go back to the start.
+		link = game_end.0 #back to Europe
+
+		
+EVENT = {
+	ID = 10 #ghost ship event chain. event 1
+	title = ghost ship
+	text = Your men climb aboard the ship. You quickly lose sight of them. Some time passes and it has gone quiet. It is almost as if they were not there any more.
+		
+	option = {
+		text = Wait for them. They will return with the secrets of this boat.
+		link = 11,12 #Ghost ship event 2 or 3
+		
+	option = {
+		text = Leave them behind, lets get out of here!
+		link = return, resume #Leave the ghost ship
+
+		multiply = {
+			crew_amount = 0.9
+
+EVENT = {
+	ID = 11 #ghost ship event chain. event 2 - success
+	title = ghost of the past
+	text = The suspense is almost too much to bear, but eventually you see movement on deck. Your men look happy and delighted. There was plenty to be found on this ship. However, the boat looks as if it is about to sink. For good. There is only so much your men can bring with them. Take what you can and then move on!
+		
+	option = {
+		text = Bring all the food.
+		link = resume #Carry on your way
+
+		add = {
+			food_amount = 30
+		
+	option = {
+		text = Bring all the gold.
+		link = resume #Carry on your way
+
+		add = {
+			gold_amount = 20
+
+	option = {
+		text = Bring all the treasure.
+		link = resume #Carry on your way
+
+		add = {
+			treasure_amount = 10
+
+EVENT = {
+	ID = 12 #ghost ship event chain. event 3 - failure
+	title = 
+	text = It is quiet. Too quiet. You send men onto the ship to investigate. There is an eerie creaking sound. Your men vanish. The air feels unnatural and the fog is mysterious. There is no hope for this ship. Your crew want to go home. They are threatening mutiny. It is time to leave.
+	modify = {
+		multiply = {
+			crew_amount = 0.8
+		
+	option = {
+		text = Leave the ghost ship behind and promise to return home.
+		link = return,return,game_end.1 #Leave the ghost ship and go back the way you came
+
+	option = {
+		text = Pay off your crew to quieten them and continue as originally planned.
+		link = resume #Leave the ghost ship and continue on your way
+
+		subtract ={
+			gold_amount = 10
+		

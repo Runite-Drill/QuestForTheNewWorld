@@ -1,0 +1,142 @@
+EVENT INDEX:
+00 = Emergency Food events
+
+NAMESPACE = RE_E_food
+
+###CONDITIONS###
+~food_amount = 250 #Food < 250 - Change to be 25 * sqrt(crew)
+
+###DEFAULT###
+random_event = yes
+
+###BEGIN###
+EVENT = {
+	ID = 1
+	title = A question of morals
+	text = Time is dire. Food supplies are getting desperately low. Your people need something to eat! Why not offer up one of your stragglers?
+	
+	option = {
+		text = Desperate times call for desperate measures.
+		link = resume
+		add = {
+			food_amount = 10
+		subtract = {
+			crew_amount = 1
+			prestige = 20
+			
+		option = {
+			text = That is inhumane. We will find food somewhere else.
+			link = resume
+			
+	option = {
+		text = Yes! A sacrifice!
+		link = resume
+		conditions = {
+			allegiance = aztec
+		add = {
+			food_amount = 10
+			score = 10
+		subtract = {
+			crew_amount = 1
+			
+EVENT = {
+	ID = 2
+	title = Creativty in the kitchen
+	text = With food supplies dwindling, creativity is needed to to ensure the expedition is well fed and survives.
+	
+	option = {
+		text = Let us plant some of our food and hope it grows fast.
+		link = RE_E_links.[1,2] #Food grows, or it does not.
+		subtract = {
+			food_amount = 5
+			
+	option = {
+		text = Oh yes! With just a bit of hydrogen dioxide mixed with sodium chloride at room temperature for 30 minutes in a light south-westerly breeze and then titrated with pure nitrogen and a potassium silicate solution we can have enough food to feed a few people!
+		link = resume
+		conditions = {
+			role = scholar
+		add = {
+			food_amount = 10
+		
+	option = {
+		text = Perhaps a bit of prayer will see us rewarded.
+		link = resume
+		conditions = {
+			role = missionary
+		add = {
+			food_amount = 5
+			
+	option = {
+		text = One day it will rain cats and dogs. We will just have to keep waiting.
+		link = resume
+		
+EVENT = {
+	ID = 3
+	title = What has it got in its pockets?
+	text = By a chance stroke of luck, just as the world seemed to be ending, you found some food in your pocket!
+	
+	option = {
+		text = We should check our pockets more often.
+		link = resume
+		conditions = {
+			~role = peasant
+		add = {
+			food_amount = 10
+			
+	option = {
+		text = We should check our pockets more often.
+		link = resume
+		conditions = {
+			role = peasant
+		add = {
+			food_amount = 15
+			
+EVENT = {
+	ID = 4
+	title = The banquet
+	text = We are running out of food any everyone knows. This expedition is grinding to a halt! Perhaps if we put on a banquet.. on last hurrah, we may just be able to push on.
+	option = {
+		text = Maybe it will boost our spirits in these dire times.
+		link = resume
+		add = {
+			prestige = 25
+		subtract = {
+			food_amount = 10
+			
+	option = {
+		text = It shall be glorious!
+		link = resume
+		conditions = {
+			role = head of state
+		add = {
+			prestige = 50
+		subtract = {
+			food_amount = 20
+			
+	option = {
+		text = No. Food is our most precious resource.
+		link = resume
+		
+EVENT = {
+	ID = 5
+	title = Life of a farmer
+	text = If only we knew how to cultivate the land and sea for more food...
+	option = {
+		text = This is my calling.
+		link = resume
+		conditions = {
+			~role = peasant
+		change = {
+			role = peasant
+			
+	option = {
+		text = ... Oh wait, I do!
+		link = resume
+		conditions = {
+			role = peasant
+		add = {
+			food_amount = 25
+			
+	option = {
+		text = I do not like the sound of that.
+		link = resume

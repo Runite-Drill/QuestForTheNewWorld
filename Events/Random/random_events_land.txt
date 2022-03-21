@@ -1,0 +1,122 @@
+EVENT INDEX:
+0 = Land - generic events
+10 = Land - resource/weather events
+20 = Land - player role events
+30 = Land - event chain entry points
+
+Linked events & event chains are found in: random_events_land_links.txt
+###CONDITIONS###
+location = north america, central america, south america
+
+###DEFAULT###
+random_event = yes
+
+###BEGIN###
+EVENT = {
+	ID = 1
+	title = outstanding natural feature
+	text = Look what you found!
+	
+	option = {
+		text = Wonderful!
+		link = resume #continue
+		add = {
+			crew_amount = 10
+		condition = {
+			role = admiral
+	
+	option = {
+		text = Wonderful!
+		link = resume #continue
+		add = {
+			gold_amount = 10
+		condition = {
+			role = merchant
+		
+	option = {
+		text = Wonderful!
+		link = resume #continue
+		add = {
+			prestige = 10
+		condition = {
+			~role = admiral, merchant, peasant
+		
+	option = {
+		text = Wonderful!
+		link = resume #continue
+		add = {
+			treasure_amount = 10
+		condition = {
+			role = peasant
+
+EVENT = {
+	ID = 2
+	title = pinecone
+	text = A pinecone has fallen on your head!
+	
+	option = {
+		text = Heck!
+		link = resume #continue
+		subtract = {
+			prestige = 10
+
+EVENT = {
+	ID = 3
+	title = gold pinecone
+	text = A golden pinecone has fallen on your head!
+	
+	option = {
+		text = Heck!
+		link = resume #continue
+		subtract = {
+			prestige = 10
+		add = {
+			treasure_amount = 5
+
+EVENT = {
+	ID = 4
+	title = falling apple
+	text = Whilst resting peacefully under a tree, an apple has fallen and bumped you in the head.
+	
+	option = {
+		text = Fast food.
+		link = resume #continue
+		add = {
+			food_amount = 5
+
+	option = {
+		text = Eureka!
+		link = resume #continue
+		conditions = {
+			role = scholar
+		add = {
+			food_amount = 5
+			prestige = 10
+			discoveries = gravity
+
+EVENT = {
+	ID = 5
+	title = A place to call home
+	text = You have seen many great things in this new land. Perhaps we should stay and try to build ourselves our community? We can the expand the realm of $ALLEGIANCE$ and proclaim glory by taking this New World as our own.
+	
+	option = {
+		text = All this land are belong to us!
+		link = resume #continue
+		conditions = {
+			~role = colonist
+		change = {
+			role = colonist
+
+	option = {
+		text = We are doing a fantastic job already.
+		link = resume #continue
+		conditions = {
+			role = colonist
+		add = {
+			prestige = 10
+
+	option = {
+		text = This is not for us to decide.
+		link = resume #continue
+
+	

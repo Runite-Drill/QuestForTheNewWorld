@@ -1,0 +1,177 @@
+###DEFAULT###
+help_event = yes
+image = help_image.png
+
+###BEGIN###
+EVENT = {
+	ID = 0
+	title = Game help - menu
+	text = Hi! Welcome to the game help. You can access the help by selecting the help button in the top-right at any time.
+	text = Quest for the New World is a chose-your-own-adventure type game where YOU get to decide the story. Remember from your childhood those books about pirate ships and dragons where you would have to turn to page x to continue the story? This game is exactly like that. However, to keep things interesting we have added a few more elements to consider when making your next move:
+	text = >Do you have enough food to feed your crew?
+	text = >Do you have enough crew to sail your ship?
+	text = >Do you have enough ship to store your treasure?
+	text = >Do you have enough treasure to satisfy your benefactors?
+	text = >Do you have enough benefactors to conduct your expedition?
+	text = .
+	text = You are the leader of a grand expedition to explore the seas out to the west of Europe. Your aim is to simply head out there with your ship and crew, sail around for a bit and then return to tell the tale. This means having enough food to cover whatever the journey may throw your way. The success of your expedition will be measured by your score, which is updated frequently based on key indicators from your progress.
+	text = .
+	text = To play the game, simply read the story that unfolds on your screen and then select an option from the list below. There will always be an option available for you to select. You can practice this now by selecting an option below.
+
+	option = {
+		text = Thanks! I am ready continue my journey.
+		link = -1 #return to previous event (all events) - close help text
+		highlight = dark green
+
+	option = {
+		text = Mechanics
+		link = 1 #resource help text
+
+	option = {
+		text = Score
+		link = 2 #resource help text
+
+	option = {
+		text = Resources
+		link = 3 #resource help text
+
+	option = {
+		text = Roles
+		link = 4 #roles help text
+
+	option = {
+		text = Allegiances
+		link = 5 #allegiances help text
+
+	option = {
+		text = Ships
+		link = 6 #ship help text
+
+EVENT = {
+	ID = 1
+	title = Game help - Mechanics
+	text = useful info about game mechanics. Some days will pass. Maybe a random event will occur.
+
+	option = {
+		text = Thanks! I am ready continue my journey.
+		link = -1 #return to previous event (all events) - close help text
+		highlight = dark green
+
+	option = {
+		text = Please return me to the main help menu.
+		link = 0 #help menu
+
+EVENT = {
+	ID = 2
+	title = Game help - Score
+	text = useful info about score. You will gain score every day based on a variety of factors. Additionally, each allegiance will grant a score bonus in one area. The amount of score awarded gradually increases each day and is scaled according to your prestige. Refer below to see the value of each resource in the score calculations (note one point does not necessarily equate to one score):
+	text = >Food - 1 point each (+50% if allied to France).
+	text = >Crew - 2 points each (+50 if allied to England).
+	text = >Gold - 3 points each (+50% if allied to Netherlands).
+	text = >Discoveries - 5 points each (+50% if allied to Portugal).
+	text = >Treasure - 8 points each (+50% if allied to Spain).
+	text = >Prestige - 1% bonus (1.25% if allied to China) for each point of prestige, scaling from -100% to 100%.
+	text = >Years passed - 20% increase in score accumulation per year (25% if allied to Norway).
+	text = .
+	text = An alliance with the Aztecs will not grant a score bonus multiplier. Instead, bonus score can be gained by making sacrifices during events.
+	text = At the end of the game, your score is converted into gold, which your explorative family can use to fund a new expedition.
+	text = .
+	text = Your current score is $SCORE$.
+
+	option = {
+		text = Thanks! I am ready continue my journey.
+		link = -1 #return to previous event (all events) - close help text
+		highlight = dark green
+
+	option = {
+		text = Please return me to the main help menu.
+		link = 0 #help menu
+
+EVENT = {
+	ID = 3
+	title = Game help - Resources
+	text = To simulate some of the practicalities of exploring an unknown world, a number of resources need to be obtained for the success of your expedition. These resources are all closely tied to the game and need to be strategically managed. The amounts of these resources can change at any time due to random events or the simple passage of time. All resources require adequate storage space on your ship to avoid severe penalties to your journey. 
+	text = >Food - the basic neccessity to feed yourself and your crew. This resource will decrease with every day that passes, based on the size of your crew. If it reaches zero you will starve and the game will end.
+	text = >Crew - the sailors that will power your ship. This resource will decrease over time as people die from travel-related issues. The size of your crew affects your sailing speed; too much or too little will reduce your travel speed.
+	text = >Gold - the timeless concept of currency. This resource will change as you spend or obtain it. With it you can conduct trades, hire crew and bribe your way out of sticky situations. If you run out your crew members might abandon you.
+	text = >Treasure - the shiny riches from faraway lands. This resource will change as you spend or obtain it. There is little you can do with the treasures you find other than flaunt your wealth. As such, treasure is worth a lot of score.
+	text = .
+	text = In addition to the above physical resources, there is also one more resource, which is more passive:
+	text = >Prestige - the public perception of your quest. This resource ranges from -100 to +100 and will drift toward zero over time. You will need to find ways to keep prestige up so that your can enjoy its benefits. Prestige will affect your expedition in proportion to how positive or negative it is. Particularly affected are: score gain, crew death chance and random event chance.
+	option = {
+		text = Thanks! I am ready continue my journey.
+		link = -1 #return to previous event (all events) - close help text
+		highlight = dark green
+
+	option = {
+		text = Please return me to the main help menu.
+		link = 0 #help menu
+
+EVENT = {
+	ID = 4
+	title = Game help - Roles
+	text = There are eight different roles to chose from, with four being available during setup and the other four being availble through events. Your role represents your background before embarking on this quest and once it is chosen it can only be changed through events. Each role is unique and provides different benefits and disadvantages. There are also different opportunities available when considering event options. Each role comes with a set of unique random events, befitting to that role. The Head of State cannot change their role - this woukd be a disgrace to themselves and their people.
+	text = .
+	text = The eight different roles are:
+	text = >Merchant - you have excellent abilities in negotiating favourable trade deals.
+	text = >Admiral - you have leadership qualities that make people follow you with no hesitation.
+	text = >Explorer - you know how to spot the tiniest of clues in the landscape to find new places.
+	text = >Peasant - you have never achieved anything special, yet you know how to remain humble.
+	text = >Head of State - you have accomplished much that will help you find success in the unknown.
+	text = >Scholar - you have extensive knowledge in the way things work and discovering new phenomena.
+	text = >Colonist - you have a knack for survival that a king could only wish for.
+	text = >Missionary - you have a deep connection to the powers beyond that will assist you when the time comes.
+	text = .
+	text = Your role is currently $ROLE$.
+
+	option = {
+		text = Thanks! I am ready continue my journey.
+		link = -1 #return to previous event (all events) - close help text
+		highlight = dark green
+
+	option = {
+		text = Please return me to the main help menu.
+		link = 0 #help menu
+
+EVENT = {
+	ID = 5
+	title = Game help - Allegiances
+	text = Each allegiance opens up different starying positions, bonuses, score accumulation and event options. Additonally, each allegiance comes with its own set of random events. Some allegiances are only available at the beginning of the game, some are only available through random events. Once chosen, you cannot change your allegiance except by event. You can also choose to ally yourself to no one and go rogue. This will grant a considerable bonus to your prestige and unique mechanics. The allegiance you select at the start of the game will also determine your starting position, although all allegiances can start in the Central Atlantic.
+	text = .
+	text = The eight different allegiances are:
+	text = >England - bonus to crew size, additional score for crew size, can start in the North Atlantic.
+	text = >France - bonus to food amount, additional score for food amount, can start in the North Atlantic
+	text = >Spain - bonus to storage amount, additional score for treasure amount, can start in Africa.
+	text = >Portugal - bonus to sailing speed, additional score for discoveries, can start in Africa.
+	text = >Netherlands - bonus to gold amount, additional score for gold amount, can start in the North Atlantic.
+	text = >Norway - bonus to death rate, additional score for passage of time, can start in the North Atlantic.
+	text = >China - bonus to prestige, additional score for prestige amount, can start in Africa.
+	text = >Aztec - unique mechanics, additional score for sacrificing people and animals, can start in Africa.
+	text = .
+	text = Your alliegance is currently $ALLEGIANCE$.
+
+	option = {
+		text = Thanks! I am ready continue my journey.
+		link = -1 #return to previous event (all events) - close help text
+		highlight = dark green
+
+	option = {
+		text = Please return me to the main help menu.
+		link = 0 #help menu
+
+
+
+EVENT = {
+	ID = 6
+	title = Game help - Ships
+	text = useful info about ships. Every ship is different! Sailing speed is important!!!
+	text = Your ship is currently a $CURRENT_SHIP$.
+
+	option = {
+		text = Thanks! I am ready continue my journey.
+		link = -1 #return to previous event (all events) - close help text
+		highlight = dark green
+
+	option = {
+		text = Please return me to the main help menu.
+		link = 0 #help menu
